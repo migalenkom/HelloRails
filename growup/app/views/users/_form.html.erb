@@ -1,27 +1,13 @@
-<%= form_for @user, remote: true do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-  <%= f.submit class: 'btn btn-primary btn-lg'%>
-  </p>
+<div id="modal-edit-user">
+<%= simple_form_for @user, remote: true, :html =>{ :class => 'form-horizontal' } do |f| %>
+    <%= f.input :email, placeholder: 'user@domain.com' %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+
+
+      <div class="modal-footer">
+        <a href="#" class="btn btn-danger btn-lg" data-dismiss="modal" >Close</a>
+        <%= f.button :submit, class: 'btn btn-success btn-lg' %>
+      </div>
 <% end %>
+</div>

@@ -24,4 +24,5 @@
 //= require bootstrap/modal
 //= require bootstrap/tooltip
 //= require bootstrap/popover
+
 //= require_tree .

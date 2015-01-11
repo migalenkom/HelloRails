@@ -2,35 +2,74 @@
 <html>
 <head>
   <title>Auth</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag :application %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GrowUp</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "Home", root_path %></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
 
 <div class="container">
-  <div class="row" >
-    <div class="well col-lg-3 col-md-offset-4" >
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
       <div id="user_nav">
         <% if current_user %>
             Logged in as <%= current_user.email %>.
             <%= link_to "Log out", log_out_path %>
-            <%= link_to 'Edit', edit_user_path(session[:user_id])  %>
+            <%= link_to 'Edit', edit_user_path(session[:user_id]), remote: true, class: "btn btn-mini" %>
+
         <% else %>
             <%= link_to "Sign up", sign_up_path %> or
             <%= link_to "log in", log_in_path %>
         <% end %>
 
       </div>
-     <% flash.each do |name, msg| %>
-     <%= content_tag :div, msg, :id => "flash_#{name}" %>
-     <% end %>
-     <div id="content">
-     <%= yield %>
-     </div>
+      <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <div id="content">
+        <%= yield %>
+      </div>
+
     </div>
   </div>
-</div> 
+</div>
+</div>
+
+
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Edit User</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>

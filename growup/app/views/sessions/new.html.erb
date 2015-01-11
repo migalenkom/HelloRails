@@ -1,13 +1,6 @@
 <h1>Log in</h1>
-
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p ><%= submit_tag "Log in", class: 'btn btn-primary btn-lg' %></p>
+<%= simple_form_for :sessions, { url: sessions_path } do |f| %>
+    <%= f.input :email, placeholder: 'user@domain.com' %>
+    <%= f.input :password %>
+    <%= f.button :submit, "Sign In" ,class: 'btn btn-primary btn-lg' %>
 <% end %>
