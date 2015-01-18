@@ -1,8 +1,10 @@
 <div id="modal-edit-user">
 <%= simple_form_for @user, remote: true, :html =>{ :class => 'form-horizontal' } do |f| %>
+    <%= f.input :name %>
     <%= f.input :email, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
+    <%= f.input :isAdmin %>
 
 
       <div class="modal-footer">

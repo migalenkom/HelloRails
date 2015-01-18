@@ -79,4 +79,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def current_resource
+    @current_resource ||= User.find(params[:id]) if params[:id]
+  end
+
 end
