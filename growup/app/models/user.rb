@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email,:isAdmin, :password, :password_confirmation
+   attr_accessible :name, :email,:isAdmin,:superAdmin, :password, :password_confirmation
   
   attr_accessor :password
   before_save :encrypt_password

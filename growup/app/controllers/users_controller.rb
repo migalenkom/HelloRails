@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
+
   def new
 	@user = User.new
   end
 
   def index
-    @users = User.all
+    @users = User.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,6 +84,15 @@ class UsersController < ApplicationController
 
   def current_resource
     @current_resource ||= User.find(params[:id]) if params[:id]
+  end
+
+
+  private
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end

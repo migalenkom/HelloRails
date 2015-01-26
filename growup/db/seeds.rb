@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+User.create(name:'Superman', email:'superadmin@local', superAdmin:true, password: 'admin', password_confirmation:'admin' )
+
+
+# attr_accessible :name, :email,:isAdmin,:superAdmin, :password, :password_confirmation
+# t.string   "email"
+# t.string   "password_hash"
+# t.string   "password_salt"
+# t.datetime "created_at",                       :null => false
+# t.datetime "updated_at",                       :null => false
+# t.boolean  "isAdmin",       :default => false, :null => false
+# t.string   "name"
+# t.boolean  "superAdmin",    :default => false, :null => false

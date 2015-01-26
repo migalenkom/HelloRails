@@ -4,6 +4,8 @@ module Permissions
       GuestPermission.new
     elsif user.isAdmin?
       AdminPermission.new(user)
+    elsif user.superAdmin?
+      SuperAdminPermission.new(user)
     else
       MemberPermission.new(user)
     end

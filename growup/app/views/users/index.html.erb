@@ -5,15 +5,15 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:id) %></th>
-    <th><%= model_class.human_attribute_name(:email) %></th>
+    <th> <%= sortable 'name'%></th>
+    <th><%= sortable 'email' %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
   <tbody>
   <% @users.each do |user| %>
-      <tr id="user_<%= user.id %>">
-        <td><%= link_to user.id, user_path(user) %></td>
+      <tr id="user_<%= user.name %>">
+        <td><%= link_to user.name, user_path(user) %></td>
         <td><%= user.email %></td>
         <td>
           <% if allow? :users, :edit, user %>

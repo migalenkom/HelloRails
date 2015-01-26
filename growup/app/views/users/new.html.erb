@@ -5,6 +5,9 @@
     <%= f.input :email, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
+    <% if allow_param? :user, :isAdmin  %>
+        <%= f.input :isAdmin %>
+    <%end%>
     <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
 
 <% end %>

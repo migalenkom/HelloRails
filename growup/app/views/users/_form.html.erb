@@ -4,9 +4,9 @@
     <%= f.input :email, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%= f.input :isAdmin %>
-
-
+    <% if allow_param? :user, :isAdmin  %>
+          <%= f.input :isAdmin %>
+    <%end%>
       <div class="modal-footer">
         <a href="#" class="btn btn-danger btn-lg" data-dismiss="modal" >Close</a>
         <%= f.button :submit, class: 'btn btn-success btn-lg' %>
