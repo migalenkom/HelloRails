@@ -7,11 +7,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(sort_column + " " + sort_direction)
+    @users = User.order(sort_column + " " + sort_direction).paginate(:per_page => 2, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
+      format.js
+
     end
   end
 
