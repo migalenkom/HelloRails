@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(sort_column + " " + sort_direction).paginate(:per_page => 2, :page => params[:page])
+    @users = User.rank(:row_order).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -88,6 +88,18 @@ class UsersController < ApplicationController
     @current_resource ||= User.find(params[:id]) if params[:id]
   end
 
+def update_row_order
+  @user = User.find(params[:user][:id])
+  @user.attributes = params[:user]
+  @user.save
+
+  respond_to do |format|
+    # format.html { redirect_to users_url }
+    format.json {  head :no_content }
+    format.js
+  end
+
+end
 
   private
   def sort_column

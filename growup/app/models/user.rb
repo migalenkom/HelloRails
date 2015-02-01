@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-   attr_accessible :name, :email,:isAdmin,:superAdmin, :password, :password_confirmation
+   attr_accessible :name, :email,:isAdmin,:superAdmin, :password, :password_confirmation,:row_order
   
   attr_accessor :password
   before_save :encrypt_password
@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   include PasswordEncrypt
+  include RankedModel
+  ranks :row_order
 
 end
