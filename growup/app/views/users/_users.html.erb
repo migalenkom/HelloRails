@@ -3,55 +3,52 @@
     <div class="col-sm-4"><%= sortable 'email' %></div>
     <div class="col-sm-4"><%=t '.actions', :default => t("helpers.actions") %></div>
 </div>
-  <ul id="userListSortable" class="list-group">
+  <ul id="userListSortable" class="list-group" data-update-url="<%=sort_users_url%>">
   <% @users.each do |user| %>
-      <li class="row list-group-item" id="user_<%= user.name %>" data-item-id="<%= user.id %>">
-        <div class="col-sm-4"><%= link_to user.name, user_path(user) %></div>
-        <div class="col-sm-4"><%= user.email %></div>
-        <div class="col-sm-4">
-          <% if allow? :users, :edit, user %>
-              <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_user_path(user),remote: true  ,:class => 'btn btn-mini' %></div>
-          <% end %>
-          <% if allow? :users, :destroy, user %>
-              <div class="col-sm-6"><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                          user_path(user),
-                          :method => :delete,
-                          remote: true,
-                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini' %></div>
-          <% end %>
-        </div>
+
+        <li class="row list-group-item" id="<%= user.id %>">
+
+            <div class="col-sm-4"><%= link_to user.name, user_path(user) %></div>
+            <div class="col-sm-4"><%= user.email %></div>
+
+            <div class="col-sm-4">
+              <% if allow? :users, :edit, user %>
+                  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                                                     edit_user_path(user),remote: true  ,:class => 'btn btn-mini' %></div>
+              <% end %>
+              <% if allow? :users, :destroy, user %>
+                  <div class="col-sm-6"><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                                    user_path(user),
+                                                    :method => :delete,
+                                                    remote: true,
+                                                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                                                    :class => 'btn btn-mini' %></div>
+              <% end %>
+            </div>
+
       </li>
   <% end %>
   </ul>
 <%= paginate @users %>
+
 <script>
+//    window.currentPage = 1;
     $(function() {
         $( "#userListSortable" ).sortable({
+            axis: 'y',
+            cursor: 'move',
             revert: true,
 
             update: function(e, ui) {
-                var item_id = ui.item.data('item-id');
-                var position = ui.item.index();
-                $.ajax({
-                    type:'PUT',
-                    url: '/row_order',
-                    dataType: 'json',
-                    data: { user: { id:item_id, row_order: position } }
-                })
+
+                $.post($(this).data('update-url'),{
+                    page:<%= params[:page] ? params[:page] :1 %>-1,
+                    user:$(this).sortable('toArray')})
+
             }
 
         });
-        $( ".list-group-item" ).draggable({
-            connectToSortable: "#userListSortable",
-            axis: "x",
-            revert: "invalid"
-        });
         $( "ul, li" ).disableSelection();
     });
-
-
-
 
 </script>

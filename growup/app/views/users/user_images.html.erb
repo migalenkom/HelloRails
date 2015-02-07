@@ -1,0 +1,9 @@
+
+<% @user.uploads.each do |img| %>
+<%= image_tag img.attachment.url(:small) %>
+<%end%>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              users_path, :class => 'btn'  %>
+</div>

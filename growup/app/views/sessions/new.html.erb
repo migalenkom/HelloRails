@@ -1,6 +1,8 @@
-<h1>Log in</h1>
+<h1 class="col-sm-8 col-md-offset-2">Log in</h1>
+<div class="col-sm-8 col-md-offset-2 well" >
 <%= simple_form_for :sessions, { url: sessions_path } do |f| %>
     <%= f.input :email, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.button :submit, "Sign In" ,class: 'btn btn-primary btn-lg' %>
 <% end %>
+</div>

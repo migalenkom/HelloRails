@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.rank(:row_order).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+    @users = User.order(sort_column + " " + sort_direction).paginate(:per_page => per_page, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,10 +26,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def show_images
+    @user = User.find(session[:user_id])
+    respond_to do |format|
+      format.html {render "user_images" }
+
+    end
+  end
+
 
   def create
 	@user = User.new(params[:user])
-	if @user.save
+
+  if @user.save
     session[:user_id] = @user.id
     redirect_to root_url, :notice => "Signed up! & logged in"
 	else
@@ -57,8 +66,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(session[:user_id])
 
+    @user.update_attributes(params[:user])
+
     respond_to do |format|
-      @user.update_attributes(params[:user])
+
       format.html { redirect_to sign_up_path, notice: 'User was successfully updated.' }
 
       format.js {}
@@ -88,25 +99,28 @@ class UsersController < ApplicationController
     @current_resource ||= User.find(params[:id]) if params[:id]
   end
 
-def update_row_order
-  @user = User.find(params[:user][:id])
-  @user.attributes = params[:user]
-  @user.save
+def sort
 
-  respond_to do |format|
-    # format.html { redirect_to users_url }
-    format.json {  head :no_content }
-    format.js
+  params[:user].each_with_index do |id, index|
+
+    User.update_all({row_order: index+1+params[:page].to_s.to_i*per_page},{id: id})
+
   end
+
+  render nothing: true
 
 end
 
   private
   def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "row_order"
   end
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  def  per_page
+    4
   end
 
 end
