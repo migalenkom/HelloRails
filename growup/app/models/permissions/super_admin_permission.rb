@@ -3,7 +3,7 @@ module Permissions
     def initialize(user)
 
       # allow_all
-      allow :users, [:new, :create,:edit,:index,:show,:sort,:resetpass]
+      allow :users, [:new, :create,:edit,:index,:show,:sort,:resetpass, :update]
       allow :users, [:destroy] do |u|
 
         u.id != user.id

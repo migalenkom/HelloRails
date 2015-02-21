@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   if @user.save
     session[:user_id] = @user.id
-    redirect_to root_url, :notice => "Signed up! & logged in"
+    redirect_to user_path(@user), :notice => "Signed up! & logged in"
 	else
 	render "new"
 	end
@@ -81,11 +81,11 @@ def resetpass
 end
 
   def edit
-	if current_user
-	@user = User.find(session[:user_id])
+	if current_user && (current_user.isAdmin? || current_user.superAdmin?)
+    @user = User.find(params[:id])
   else
-      @user = User.find(params[:id])
-
+    @user = User.find(session[:user_id])
+  end
   respond_to do  |format|
 
     format.html{ }
@@ -93,26 +93,38 @@ end
 
   end
 
-  end
+
   end
 
   def update
-    @user = User.find(session[:user_id])
 
-    @user.update_attributes(params[:user])
+    @user = nil
+
+    if current_user && (current_user.isAdmin? || current_user.superAdmin?)
+      @user = User.find(params[:id])
+    else
+      @user = User.find(session[:user_id])
+    end
+
+    if  @user.present?
+      @user.update_attributes(params[:user])
+
+    end
 
     respond_to do |format|
 
-      format.html { redirect_to sign_up_path, notice: 'User was successfully updated.' }
+      format.html do
+
+       if @user.present?
+          redirect_to user_path(@user), notice: 'User was successfully updated.'
+       else
+         redirect_to edit_user_path(@user), notice: 'Incorrect values'
+       end
+
+      end
 
       format.js {}
-      #   format.js {}
-      # if @user.update_attributes(params[:user])
-      #   format.html { redirect_to sign_up_path, notice: 'User was successfully updated.' }
-      #   format.js {}
-      # else
-      #   format.html { render action: "edit" }
-      # end
+
     end
   end
 
