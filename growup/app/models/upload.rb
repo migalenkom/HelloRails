@@ -3,7 +3,7 @@ class Upload < ActiveRecord::Base
 
   # has_many :user_uploads
   # has_many :user, through: :user_uploads
-   has_and_belongs_to_many :users, :join_table => 'user_uploads'
+  has_and_belongs_to_many :users, :join_table => 'user_uploads'
   has_attached_file :attachment,:styles => { :small => "350x350>" },
                     :url  => "/assets/images/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/images/:id/:style/:basename.:extension"

@@ -46,6 +46,39 @@ class UsersController < ApplicationController
 	end
   end
 
+def resetpass
+
+  if request.post?
+    @user = User.find_by_email(params[:resetpass][:email])
+    pass= params[:resetpass][:password].to_s
+    confirm_pass = params[:resetpass][:confirm_password].to_s
+
+    if  @user.present? && !pass.empty? && pass.eql?(confirm_pass)
+
+      @user.password=  pass
+      @user.save
+
+    else
+
+      redirect_to :back, notice: 'Not found or passwords are not match'
+      return
+    end
+
+    respond_to do  |format|
+
+      format.html{ redirect_to log_in_path, notice: 'Password was successfully updated.'}
+      format.js {}
+
+    end
+  else if request.get?
+
+      respond_to do |format|
+      format.html{ render 'resetpass' }
+      format.js {}
+    end
+    end
+    end
+end
 
   def edit
 	if current_user

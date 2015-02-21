@@ -8,6 +8,11 @@
 
 
 User.create(name:'Superman', email:'superadmin@local', superAdmin:true, password: 'admin', password_confirmation:'admin' )
+User.create(name:'Petro', email:'test1@local',password: 'test', password_confirmation:'test' )
+User.create(name:'Vasia', email:'test2@local',password: 'test', password_confirmation:'test' )
+User.create(name:'Ivan', email:'test3@local',password: 'test', password_confirmation:'test' )
+User.create(name:'John', email:'test4@local',password: 'test', password_confirmation:'test' )
+User.create(name:'Eugene', email:'test5@local',password: 'test', password_confirmation:'test' )
 
 
 # attr_accessible :name, :email,:isAdmin,:superAdmin, :password, :password_confirmation

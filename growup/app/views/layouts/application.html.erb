@@ -21,8 +21,9 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", root_path %></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <% if allow? :users, :index %><li> <%= link_to "Admin page", users_path %> </li><%end%>
+        <% if allow? :users, :show  %><li> <%= link_to "Profile", user_path(session[:user_id]) %> </li><%end%>
+        <% if allow? :uploads, :new  %><li> <%= link_to "Upload Files",  new_upload_path() %> </li><%end%>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

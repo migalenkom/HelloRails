@@ -1,0 +1,9 @@
+<h1 class="col-sm-8 col-md-offset-2">Reset password</h1>
+<div class="col-sm-8 col-md-offset-2 well" >
+  <%= simple_form_for :resetpass, { url: reset_pass_url } do |f| %>
+      <%= f.input :email, placeholder: 'user@domain.com' %>
+      <%= f.input :password %>
+      <%= f.input :confirm_password %>
+      <%= f.button :submit, "Reset" ,class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>

@@ -23,10 +23,8 @@ ActiveRecord::Schema.define(:version => 20150207124238) do
   end
 
   create_table "user_uploads", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "upload_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "user_id"
+    t.integer "upload_id"
   end
 
   create_table "users", :force => true do |t|

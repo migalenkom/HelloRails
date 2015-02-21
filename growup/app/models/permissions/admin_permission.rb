@@ -3,7 +3,7 @@ module Permissions
     def initialize(user)
 
       # allow_all
-      allow :users, [:index,:new,:create,:sort]
+      allow :users, [:index,:new,:create,:sort,:resetpass]
       allow :users, [:edit] do |u|
 
         u.id==user.id
@@ -14,6 +14,7 @@ module Permissions
         u.superAdmin == false || u.id != user.id
       end
       allow :sessions, [:new, :create, :destroy]
+      allow :uploads, [:index,:new,:create,:destroy,:update,:show]
     end
   end
 end

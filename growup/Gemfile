@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 #gem 'sqlite3'
 gem 'mysql2'
+gem 'pg'
 gem 'will_paginate', '~> 3.0.6'
 gem "bcrypt-ruby", :require => "bcrypt"
 
@@ -16,7 +17,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   
-  gem 'bootstrap-sass', '<=3.1.1.0'
+  gem 'bootstrap-sass', '=3.1.1.0'
 
  # gem 'twitter-bootstrap-rails'
  # gem "therubyracer"
@@ -33,12 +34,16 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'thin'
-gem 'quiet_assets', group: :development
-#gem 'ranked-model'
-gem "paperclip", "~> 4.2"
 
+gem  "paperclip", "~> 4.2"
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'quiet_assets'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -53,3 +58,4 @@ gem "paperclip", "~> 4.2"
 
 # To use debugger
 # gem 'debugger'
+
