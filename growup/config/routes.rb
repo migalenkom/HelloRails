@@ -3,7 +3,7 @@ Growup::Application.routes.draw do
   resources :users
 
 
-  match "reset_password" => "users#resetpass", :as => "reset_pass"
+  match "reset_password" => "users#resetpass", :as => "reset_pass", via: [:post, :get]
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"

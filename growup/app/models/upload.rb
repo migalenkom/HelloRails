@@ -1,5 +1,5 @@
 class Upload < ActiveRecord::Base
-  attr_accessible :attachment
+  # attr_accessible :attachment
 
   # has_many :user_uploads
   # has_many :user, through: :user_uploads

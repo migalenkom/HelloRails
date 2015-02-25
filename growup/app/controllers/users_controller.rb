@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
 
   def create
-	@user = User.new(params[:user])
+	@user = User.new(user_params)
 
   if @user.save
     session[:user_id] = @user.id
@@ -107,7 +107,7 @@ end
     end
 
     if  @user.present?
-      @user.update_attributes(params[:user])
+      @user.update_attributes(user_params)
 
     end
 
@@ -166,6 +166,11 @@ end
 
   def  per_page
     4
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email,:isAdmin,:superAdmin, :password,
+                                  :password_confirmation,:row_order,:avatar)
   end
 
 end

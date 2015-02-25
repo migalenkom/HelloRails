@@ -24,7 +24,7 @@
 //= require bootstrap/modal
 //= require bootstrap/tooltip
 //= require bootstrap/popover
-//= require jquery.ui.sortable
+//= require jquery-ui
 //= require jquery-fileupload
 //= require_tree .
 
