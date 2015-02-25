@@ -9,33 +9,39 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150207124238) do
+ActiveRecord::Schema.define(version: 20150207124238) do
 
-  create_table "uploads", :force => true do |t|
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "uploads", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
   end
 
-  create_table "user_uploads", :force => true do |t|
+  create_table "user_uploads", force: true do |t|
     t.integer "user_id"
     t.integer "upload_id"
   end
 
-  create_table "users", :force => true do |t|
+  add_index "user_uploads", ["upload_id"], name: "index_user_uploads_on_upload_id", using: :btree
+  add_index "user_uploads", ["user_id"], name: "index_user_uploads_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.boolean  "isAdmin",             :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "isAdmin",             default: false, null: false
     t.string   "name"
-    t.boolean  "superAdmin",          :default => false, :null => false
+    t.boolean  "superAdmin",          default: false, null: false
     t.integer  "row_order"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
