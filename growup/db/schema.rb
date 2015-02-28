@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150207124238) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "uploads", force: true do |t|
+  create_table "uploads", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment_file_name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150207124238) do
     t.datetime "attachment_updated_at"
   end
 
-  create_table "user_uploads", force: true do |t|
+  create_table "user_uploads", force: :cascade do |t|
     t.integer "user_id"
     t.integer "upload_id"
   end
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150207124238) do
   add_index "user_uploads", ["upload_id"], name: "index_user_uploads_on_upload_id", using: :btree
   add_index "user_uploads", ["user_id"], name: "index_user_uploads_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"

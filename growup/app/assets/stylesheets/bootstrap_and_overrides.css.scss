@@ -1,9 +1,16 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "jquery.fileupload-ui";
 
-#user_nav {
 
-padding-top: 100px;
+#content {
+padding-top: 40px;
 
+}
 
+#alertNotice {
+
+position: fixed ;
+top: 50px;
+  right: 10px;
 }

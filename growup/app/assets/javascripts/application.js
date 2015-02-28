@@ -26,5 +26,6 @@
 //= require bootstrap/popover
 //= require jquery-ui
 //= require jquery-fileupload
+// require jquery.fileupload
 //= require_tree .
 

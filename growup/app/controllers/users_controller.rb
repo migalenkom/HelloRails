@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
 
-
   def new
 	@user = User.new
   end
@@ -148,7 +147,7 @@ def sort
 
   params[:user].each_with_index do |id, index|
 
-    User.update_all({row_order: index+1+params[:page].to_s.to_i*per_page},{id: id})
+    User.where(id: id).update_all(row_order: index+1+params[:page].to_s.to_i*per_page)
 
   end
 
@@ -169,8 +168,8 @@ end
   end
 
   def user_params
-    params.require(:user).permit(:name, :email,:isAdmin,:superAdmin, :password,
-                                  :password_confirmation,:row_order,:avatar)
+    # params.require(:user)
+   params.require(:user).permit(:name,:email,:isAdmin,:superAdmin,:password,:password_confirmation,:row_order,:avatar)
   end
 
 end

@@ -4,14 +4,12 @@
     <%= f.input :email, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-
-    <% if allow_param? :user, :isAdmin  %>
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <% if allow_param? :user, :isAdmin  %>
           <%= f.input :isAdmin %>
     <%end%>
 
     <%= f.file_field :avatar%>
-
-     <!--multiple: 'multiple'-->
 
       <div class="modal-footer">
         <a href="#" class="btn btn-danger btn-lg" data-dismiss="modal" >Close</a>
