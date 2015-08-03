@@ -1,0 +1,2 @@
+$('#editOrganization').popover("destroy");
+$('#<%=@organization.id%>').replaceWith($("<%= j render partial: 'organization', locals:{ organization: @organization } %>"));

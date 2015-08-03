@@ -17,9 +17,9 @@ class User < ActiveRecord::Base
 
   include PasswordEncrypt
 
-    # has_many :user_uploads
-    # has_many :uploads, through: :user_uploads
-    has_and_belongs_to_many :uploads, :join_table => 'user_uploads'
-
+  has_and_belongs_to_many :uploads, :join_table => 'user_uploads'
+  has_many :user_organizations
+  has_many :organizations, through: :user_organizations
+  has_many :created_organizations, :class_name => "Organization", :foreign_key => "creator_id"
 
 end

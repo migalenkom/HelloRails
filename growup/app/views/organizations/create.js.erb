@@ -1,0 +1,2 @@
+$('#createNewOrganization').popover("destroy");
+$('#organizationsList').append($("<%= j render partial: 'organization', locals:{ organization: @organization } %>"));

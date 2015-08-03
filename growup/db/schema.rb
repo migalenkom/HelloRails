@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207124238) do
+ActiveRecord::Schema.define(version: 20150804135940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "creator_id"
+  end
 
   create_table "uploads", force: :cascade do |t|
     t.datetime "created_at"
@@ -24,6 +32,14 @@ ActiveRecord::Schema.define(version: 20150207124238) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
   end
+
+  create_table "user_organizations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "organization_id"
+  end
+
+  add_index "user_organizations", ["organization_id"], name: "index_user_organizations_on_organization_id", using: :btree
+  add_index "user_organizations", ["user_id"], name: "index_user_organizations_on_user_id", using: :btree
 
   create_table "user_uploads", force: :cascade do |t|
     t.integer "user_id"

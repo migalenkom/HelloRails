@@ -14,10 +14,10 @@ Growup::Application.routes.draw do
   end
   resources :sessions
   resources :uploads
-
-
-
-
+  resources :organizations
+  # do
+  #   member {get :show}
+  # end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
