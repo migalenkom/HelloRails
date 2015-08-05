@@ -1,0 +1,9 @@
+$('#editProject').popover("destroy");
+$('#editProject').popover({
+    html:true,
+    content:"<%= j render 'projects/form'%>",
+    placement:"auto",
+    container:"body",
+    template:'<div style="width: 500px;" class="popover" role="tooltip"><div class="popover-content"></div></div>'
+
+}).popover('show');

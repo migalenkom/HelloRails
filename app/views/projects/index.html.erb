@@ -1,0 +1,12 @@
+<ul id="projectsList" class="list-group" >
+
+  <% @projects.each do |project| %>
+
+      <%= render  'project', project:project, organization:@organization %>
+
+  <%end%>
+</ul>
+
+<div>
+  <%= link_to "Create new project",new_organization_project_path, remote:true , id:"createNewProject", class:"btn btn-lg btn-primary" %>
+</div>

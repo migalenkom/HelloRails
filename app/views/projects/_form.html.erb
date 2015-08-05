@@ -1,0 +1,7 @@
+<div >
+  <%= simple_form_for [@organization,@project], remote:true  do |f| %>
+      <%= f.input :name, placeholder: 'Project Name' %>
+      <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
+      <%= f.hidden_field :organization_id, value: params[:organization_id] %>
+  <% end %>
+</div>

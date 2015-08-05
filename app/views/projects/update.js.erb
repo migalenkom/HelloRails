@@ -1,0 +1,2 @@
+$('#editProject').popover("destroy");
+$('#<%=@project.id%>').replaceWith($("<%= j render 'project', project: @project, organization:@organization %>"));
