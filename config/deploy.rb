@@ -5,7 +5,9 @@ set :application, 'HelloRails'
 set :repo_url, 'git@github.com:migalenkom/HelloRails.git'
 
 # Default branch is :rails4
- ask :rails4, `git rev-parse --abbrev-ref HEAD`.chomp
+#  set :branch,fetch(:branch, 'rails4')
+ # ask :rails4,`git rev-parse --abbrev-ref HEAD`.chomp
+set :branch, "rails4"
 
 set :use_sudo, false
 set :bundle_binstubs, nil

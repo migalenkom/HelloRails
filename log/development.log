@@ -20005,3 +20005,16 @@ Processing by OrganizationsController#index as HTML
   Rendered organizations/index.html.erb within layouts/application (40.3ms)
   [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 1135ms (Views: 1117.5ms | ActiveRecord: 7.2ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-10 17:34:58 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mOrganization Load (0.7ms)[0m  SELECT "organizations".* FROM "organizations"
+  Rendered organizations/_organization.html.erb (20.5ms)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  Rendered organizations/_organization.html.erb (0.7ms)
+  Rendered organizations/index.html.erb within layouts/application (40.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 1194ms (Views: 1175.4ms | ActiveRecord: 7.8ms)
