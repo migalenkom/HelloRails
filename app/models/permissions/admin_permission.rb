@@ -12,6 +12,7 @@ module Permissions
       allow :users, [:destroy] do |u|
 
         u.superAdmin == false || u.id != user.id
+
       end
       allow :sessions, [:new, :create, :destroy]
       allow :uploads, [:index,:new,:create,:destroy,:update,:show]

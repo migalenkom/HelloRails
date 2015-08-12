@@ -20771,3 +20771,2110 @@ Processing by OrganizationsController#index as HTML
   Rendered organizations/_organization.html.erb (1.2ms)
   Rendered organizations/index.html.erb within layouts/application (15.8ms)
 Completed 200 OK in 89ms (Views: 78.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:16:38 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.5ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (1.0ms)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  [1m[36mOrganization Load (0.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (0.9ms)
+  Rendered organizations/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 54ms (Views: 48.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:19:16 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (1.3ms)
+  Rendered organizations/_organization.html.erb (1.0ms)
+  [1m[35mOrganization Load (0.7ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (1.0ms)
+  Rendered organizations/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 66ms (Views: 59.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:21:27 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (5.7ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (0.9ms)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  [1m[36mOrganization Load (0.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (0.8ms)
+  Rendered organizations/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 68ms (Views: 55.4ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/organizations/new" for 127.0.0.1 at 2015-08-12 14:21:34 +0300
+Processing by OrganizationsController#new as JS
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered organizations/_new.html.erb (6.9ms)
+  Rendered organizations/new.js.erb (7.9ms)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/organizations" for 127.0.0.1 at 2015-08-12 14:21:46 +0300
+Processing by OrganizationsController#create as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"New", "description"=>"org"}, "commit"=>"Create Organization"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "organizations" ("name", "description", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "New"], ["description", "org"], ["creator_id", 1], ["created_at", "2015-08-12 11:21:46.639753"], ["updated_at", "2015-08-12 11:21:46.639753"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "user_organizations" ("user_id", "organization_id") VALUES ($1, $2) RETURNING "id"  [["user_id", 1], ["organization_id", 98]]
+  [1m[36m (16.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  Rendered organizations/_organization.html.erb (0.9ms)
+  Rendered organizations/create.js.erb (3.8ms)
+Completed 200 OK in 38ms (Views: 7.3ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:22:22 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (1.1ms)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  Rendered organizations/_organization.html.erb (0.9ms)
+  [1m[35mOrganization Load (0.5ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  Rendered organizations/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 116ms (Views: 77.0ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:24:47 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (1.3ms)
+  Rendered organizations/_organization.html.erb (1.2ms)
+  Rendered organizations/_organization.html.erb (2.6ms)
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (1.2ms)
+  Rendered organizations/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 74ms (Views: 67.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/organizations/94/edit" for 127.0.0.1 at 2015-08-12 14:24:55 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  Rendered organizations/_new.html.erb (8.9ms)
+  Rendered organizations/edit.js.erb (10.3ms)
+Completed 200 OK in 17ms (Views: 12.5ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/organizations/94" for 127.0.0.1 at 2015-08-12 14:24:58 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"NewOrganization1", "description"=>"#"}, "commit"=>"Update Organization", "id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "organizations" SET "name" = $1, "updated_at" = $2 WHERE "organizations"."id" = $3[0m  [["name", "NewOrganization1"], ["updated_at", "2015-08-12 11:24:58.167075"], ["id", 94]]
+  [1m[35m (10.7ms)[0m  COMMIT
+  Rendered organizations/_organization.html.erb (1.0ms)
+  Rendered organizations/update.js.erb (2.0ms)
+Completed 200 OK in 28ms (Views: 3.7ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:30:22 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.7ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (1.7ms)
+  Rendered organizations/_organization.html.erb (1.3ms)
+  Rendered organizations/_organization.html.erb (1.2ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (1.2ms)
+  Rendered organizations/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 75ms (Views: 62.7ms | ActiveRecord: 3.0ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:33:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.1ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (160.1ms)
+  Rendered organizations/_organization.html.erb (10.2ms)
+  Rendered organizations/_organization.html.erb (9.6ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (18.1ms)
+  Rendered organizations/index.html.erb within layouts/application (269.8ms)
+Completed 200 OK in 187388ms (Views: 8470.4ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:40:36 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  Rendered organizations/_organization.html.erb (10.9ms)
+  Rendered organizations/_organization.html.erb (10.7ms)
+  [1m[36mOrganization Load (1.3ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (10.8ms)
+  Rendered organizations/index.html.erb within layouts/application (119.2ms)
+Completed 200 OK in 290989ms (Views: 428.7ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:45:34 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 167ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/models/permissions/base_permission.rb:5:in `allow?'
+  app/controllers/application_controller.rb:27:in `authorize'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (203.0ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (60.8ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.5ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (296.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:51:57 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (10.9ms)
+  Rendered organizations/_organization.html.erb (10.4ms)
+  Rendered organizations/_organization.html.erb (10.4ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (10.5ms)
+  Rendered organizations/index.html.erb within layouts/application (99.7ms)
+Completed 200 OK in 631ms (Views: 412.0ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:52:45 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (11.4ms)
+  Rendered organizations/_organization.html.erb (10.3ms)
+  Rendered organizations/_organization.html.erb (10.8ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (10.5ms)
+  Rendered organizations/index.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 415ms (Views: 388.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 14:56:51 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (11.7ms)
+  Rendered organizations/_organization.html.erb (10.9ms)
+  Rendered organizations/_organization.html.erb (11.1ms)
+  [1m[36mOrganization Load (1.1ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (10.8ms)
+  Rendered organizations/index.html.erb within layouts/application (103.6ms)
+Completed 200 OK in 649ms (Views: 415.7ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:06:51 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (10.0ms)
+  Rendered organizations/index.html.erb within layouts/application (52.6ms)
+Completed 500 Internal Server Error in 280ms
+
+SyntaxError (/home/mike/HelloRails/app/views/organizations/_organization.html.erb:9: syntax error, unexpected '>'
+..._append='       '.freeze; if  >  <div class="col-sm-6"> <%= ...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:9: syntax error, unexpected '<'
+...if  >  <div class="col-sm-6"> <%= link_to t('.edit', :defaul...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:9: syntax error, unexpected ')', expecting keyword_end
+...ult => t("helpers.links.edit")),
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:10: syntax error, unexpected ',', expecting keyword_end
+...rganization_path(organization),remote: true ,:id => 'editOrg...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:10: Can't assign to true
+...th(organization),remote: true ,:id => 'editOrganization',:cl...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:10: syntax error, unexpected =>, expecting :: or '[' or '.'
+...anization),remote: true ,:id => 'editOrganization',:class =>...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:10: syntax error, unexpected ',', expecting keyword_end
+...rue ,:id => 'editOrganization',:class => 'btn btn-mini glyph...
+...                               ^):
+  app/views/organizations/_organization.html.erb:9: syntax error, unexpected '>'
+  app/views/organizations/_organization.html.erb:9: syntax error, unexpected '<'
+  app/views/organizations/_organization.html.erb:9: syntax error, unexpected ')', expecting keyword_end
+  app/views/organizations/_organization.html.erb:10: syntax error, unexpected ',', expecting keyword_end
+  app/views/organizations/_organization.html.erb:10: Can't assign to true
+  app/views/organizations/_organization.html.erb:10: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/views/organizations/_organization.html.erb:10: syntax error, unexpected ',', expecting keyword_end
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (380.8ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (104.5ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.8ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (518.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:08:26 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.3ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (17.9ms)
+  Rendered organizations/index.html.erb within layouts/application (30.9ms)
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (undefined method `creator_id' for nil:NilClass):
+     6: 
+     7:       <div class="col-sm-4">
+     8: 
+     9:         <% if allow? :organizations, :index, current_user, organization %>  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    10:                                                 edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div><%end%>
+    11: 
+    12: 
+  app/models/permissions/base_permission.rb:6:in `allow?'
+  app/controllers/application_controller.rb:5:in `allow?'
+  app/views/organizations/_organization.html.erb:9:in `_app_views_organizations__organization_html_erb___2491942528830770346_91114420'
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (357.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (79.0ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.9ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (469.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:10:30 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (16.8ms)
+  Rendered organizations/index.html.erb within layouts/application (64.1ms)
+Completed 500 Internal Server Error in 296ms
+
+ActionView::Template::Error (undefined method `id' for 89:Fixnum):
+     6: 
+     7:       <div class="col-sm-4">
+     8: 
+     9:         <% if allow? :organizations, :index, current_user, organization.id%>  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    10:                                                 edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div><%end%>
+    11: 
+    12: 
+  app/models/permissions/base_permission.rb:6:in `allow?'
+  app/controllers/application_controller.rb:5:in `allow?'
+  app/views/organizations/_organization.html.erb:9:in `_app_views_organizations__organization_html_erb___2491942528830770346_93818840'
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (349.0ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (79.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (461.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:11:40 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 181ms
+
+NameError (undefined local variable or method `user' for #<Permissions::SuperAdminPermission:0x00000006c7ceb8>):
+  app/models/permissions/base_permission.rb:5:in `allow?'
+  app/controllers/application_controller.rb:27:in `authorize'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (218.2ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (51.3ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.2ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (302.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:12:44 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 20ms
+
+NameError (undefined local variable or method `user' for #<Permissions::SuperAdminPermission:0x000000093dd340>):
+  app/models/permissions/base_permission.rb:5:in `allow?'
+  app/controllers/application_controller.rb:27:in `authorize'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (218.6ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (52.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.5ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (303.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:12:54 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 15ms
+
+NameError (undefined local variable or method `user' for #<Permissions::SuperAdminPermission:0x00000006306280>):
+  app/models/permissions/base_permission.rb:5:in `allow?'
+  app/controllers/application_controller.rb:27:in `authorize'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (210.8ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (61.5ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.3ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (306.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:13:10 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.4ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (16.2ms)
+  Rendered organizations/index.html.erb within layouts/application (64.1ms)
+Completed 500 Internal Server Error in 280ms
+
+ActionView::Template::Error (undefined method `id' for 1:Fixnum):
+     6: 
+     7:       <div class="col-sm-4">
+     8: 
+     9:         <% if allow? :organizations, :index, current_user, organization.creator_id%>  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    10:                                                 edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div><%end%>
+    11: 
+    12: 
+  app/models/permissions/base_permission.rb:6:in `allow?'
+  app/controllers/application_controller.rb:5:in `allow?'
+  app/views/organizations/_organization.html.erb:9:in `_app_views_organizations__organization_html_erb___2491942528830770346_42684260'
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (345.9ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (78.6ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.9ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (457.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:13:44 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (5.4ms)
+  Rendered organizations/index.html.erb within layouts/application (49.6ms)
+Completed 500 Internal Server Error in 283ms
+
+ActionView::Template::Error (undefined method `id' for 1:Fixnum):
+     6: 
+     7:       <div class="col-sm-4">
+     8: 
+     9:         <% if allow? :organizations, :index, current_user, organization.creator_id%>  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    10:                                                 edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div><%end%>
+    11: 
+    12: 
+  app/models/permissions/base_permission.rb:6:in `allow?'
+  app/controllers/application_controller.rb:5:in `allow?'
+  app/views/organizations/_organization.html.erb:9:in `_app_views_organizations__organization_html_erb___2491942528830770346_42684260'
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb__3921382408553890494_51045260'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (350.9ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (79.3ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.0ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (463.5ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:14:08 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (2.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (8.7ms)
+  Rendered organizations/_organization.html.erb (8.3ms)
+  Rendered organizations/_organization.html.erb (8.1ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (8.6ms)
+  Rendered organizations/index.html.erb within layouts/application (98.5ms)
+Completed 200 OK in 634ms (Views: 419.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:14:28 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (8.4ms)
+  Rendered organizations/_organization.html.erb (9.0ms)
+  Rendered organizations/_organization.html.erb (9.1ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (9.0ms)
+  Rendered organizations/index.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 426ms (Views: 391.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:14:38 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (13.0ms)
+  Rendered organizations/_organization.html.erb (12.2ms)
+  Rendered organizations/_organization.html.erb (8.8ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (9.3ms)
+  Rendered organizations/index.html.erb within layouts/application (81.8ms)
+Completed 200 OK in 435ms (Views: 406.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:14:52 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (9.3ms)
+  Rendered organizations/_organization.html.erb (9.6ms)
+  Rendered organizations/_organization.html.erb (9.4ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (10.1ms)
+  Rendered organizations/index.html.erb within layouts/application (70.3ms)
+Completed 200 OK in 444ms (Views: 413.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:15:01 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (63503.6ms)
+  Rendered organizations/_organization.html.erb (14.2ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  [1m[36mOrganization Load (1.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (10.5ms)
+  Rendered organizations/index.html.erb within layouts/application (63581.3ms)
+Completed 200 OK in 63926ms (Views: 63899.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:16:10 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (8.9ms)
+  Rendered organizations/_organization.html.erb (8.1ms)
+  Rendered organizations/_organization.html.erb (8.5ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (8.1ms)
+  Rendered organizations/index.html.erb within layouts/application (96.9ms)
+Completed 200 OK in 663ms (Views: 413.2ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:17:11 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (35956.2ms)
+  Rendered organizations/_organization.html.erb (5546.7ms)
+  Rendered organizations/_organization.html.erb (6860.2ms)
+  [1m[36mOrganization Load (2.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (2514.3ms)
+  Rendered organizations/index.html.erb within layouts/application (50919.4ms)
+Completed 200 OK in 51280ms (Views: 51256.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:18:07 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (13392.4ms)
+  Rendered organizations/_organization.html.erb (5696.4ms)
+  Rendered organizations/_organization.html.erb (3252.1ms)
+  [1m[35mOrganization Load (1.3ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2503.0ms)
+  Rendered organizations/index.html.erb within layouts/application (24888.7ms)
+Completed 200 OK in 25280ms (Views: 25254.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:18:58 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (4617.0ms)
+  Rendered organizations/_organization.html.erb (13751.7ms)
+  Rendered organizations/_organization.html.erb (1681.2ms)
+  [1m[36mOrganization Load (1.6ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (1388.6ms)
+  Rendered organizations/index.html.erb within layouts/application (21517.2ms)
+Completed 200 OK in 22077ms (Views: 21842.9ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:19:24 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (12.5ms)
+  Rendered organizations/_organization.html.erb (25.7ms)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  Rendered organizations/index.html.erb within layouts/application (123.7ms)
+Completed 200 OK in 691ms (Views: 443.5ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:20:07 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.2ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (23.3ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  Rendered organizations/_organization.html.erb (11.7ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (12.2ms)
+  Rendered organizations/index.html.erb within layouts/application (131.3ms)
+Completed 200 OK in 692ms (Views: 455.2ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:20:41 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (28018.0ms)
+  Rendered organizations/_organization.html.erb (30.1ms)
+  Rendered organizations/_organization.html.erb (10.7ms)
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (8.9ms)
+  Rendered organizations/index.html.erb within layouts/application (28101.4ms)
+Completed 200 OK in 28460ms (Views: 28434.7ms | ActiveRecord: 2.5ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:21:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (3369.5ms)
+  Rendered organizations/_organization.html.erb (3775.0ms)
+  Rendered organizations/_organization.html.erb (1881.3ms)
+  [1m[35mOrganization Load (1.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (1437.4ms)
+  Rendered organizations/index.html.erb within layouts/application (10551.7ms)
+Completed 200 OK in 19316ms (Views: 19062.9ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:22:03 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (8.5ms)
+  Rendered organizations/_organization.html.erb (8.6ms)
+  Rendered organizations/_organization.html.erb (7.9ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (8.5ms)
+  Rendered organizations/index.html.erb within layouts/application (92.1ms)
+Completed 200 OK in 614ms (Views: 404.2ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:22:49 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (31753.0ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  Rendered organizations/_organization.html.erb (11.0ms)
+  [1m[35mOrganization Load (1.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (9.9ms)
+  Rendered organizations/index.html.erb within layouts/application (31821.0ms)
+Completed 200 OK in 32201ms (Views: 32175.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:23:26 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (12.4ms)
+  Rendered organizations/_organization.html.erb (11.1ms)
+  Rendered organizations/_organization.html.erb (11.4ms)
+  [1m[36mOrganization Load (1.1ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (8.0ms)
+  Rendered organizations/index.html.erb within layouts/application (102.3ms)
+Completed 200 OK in 672ms (Views: 424.8ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:23:49 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (14.1ms)
+  Rendered organizations/_organization.html.erb (12.9ms)
+  Rendered organizations/_organization.html.erb (11.3ms)
+  [1m[35mOrganization Load (1.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (8.3ms)
+  Rendered organizations/index.html.erb within layouts/application (110.7ms)
+Completed 200 OK in 671ms (Views: 433.3ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:24:38 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (25.5ms)
+  Rendered organizations/_organization.html.erb (12.8ms)
+  Rendered organizations/_organization.html.erb (12.8ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.3ms)
+  Rendered organizations/index.html.erb within layouts/application (102.3ms)
+Completed 200 OK in 433ms (Views: 408.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/organizations/94/projects" for 127.0.0.1 at 2015-08-12 15:24:46 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"94"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1  [["organization_id", 94]]
+  Rendered projects/_project.html.erb (21.4ms)
+  Rendered projects/index.html.erb within layouts/application (81.6ms)
+Completed 200 OK in 495ms (Views: 422.9ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/organizations/92/projects" for 127.0.0.1 at 2015-08-12 15:26:50 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"92"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.7ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 92]]
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1[0m  [["organization_id", 92]]
+  Rendered projects/_project.html.erb (12.1ms)
+  Rendered projects/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 384ms (Views: 356.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/organizations/89/projects" for 127.0.0.1 at 2015-08-12 15:26:54 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"89"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (2.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 89]]
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1  [["organization_id", 89]]
+  Rendered projects/_project.html.erb (12.2ms)
+  Rendered projects/_project.html.erb (12.4ms)
+  Rendered projects/_project.html.erb (11.4ms)
+  Rendered projects/index.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 432ms (Views: 401.5ms | ActiveRecord: 4.0ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:27:12 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (20.6ms)
+  Rendered organizations/_organization.html.erb (0.9ms)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  [1m[35mOrganization Load (1.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (0.3ms)
+  Rendered organizations/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 1154ms (Views: 1088.6ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:27:19 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.6ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (1.8ms)
+  Rendered organizations/_organization.html.erb (1.2ms)
+  Rendered organizations/_organization.html.erb (1.2ms)
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (0.4ms)
+  Rendered organizations/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 78ms (Views: 71.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/organizations/94/projects" for 127.0.0.1 at 2015-08-12 15:29:49 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"94"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.6ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1  [["organization_id", 94]]
+  Rendered projects/_project.html.erb (7.4ms)
+  Rendered projects/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 97ms (Views: 67.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/organizations/94/edit" for 127.0.0.1 at 2015-08-12 15:29:57 +0300
+Processing by OrganizationsController#edit as HTML
+  Parameters: {"id"=>"94"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.6ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 94]]
+  Rendered organizations/_new.html.erb (43.3ms)
+  Rendered organizations/edit.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 90ms (Views: 84.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/organizations/94/delete" for 127.0.0.1 at 2015-08-12 15:30:05 +0300
+
+ActionController::RoutingError (No route matches [GET] "/organizations/94/delete"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (181.6ms)
+
+
+Started PATCH "/organizations/94" for 127.0.0.1 at 2015-08-12 15:30:13 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"NewOrganization5", "description"=>"#"}, "commit"=>"Update Organization", "id"=>"94"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.5ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 94]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "organizations" SET "name" = $1, "updated_at" = $2 WHERE "organizations"."id" = $3  [["name", "NewOrganization5"], ["updated_at", "2015-08-12 12:30:13.858003"], ["id", 94]]
+  [1m[36m (44.8ms)[0m  [1mCOMMIT[0m
+  Rendered organizations/_organization.html.erb (10.8ms)
+  Rendered organizations/update.js.erb (12.5ms)
+Completed 200 OK in 81ms (Views: 14.6ms | ActiveRecord: 46.5ms)
+
+
+Started GET "/organizations/94" for 127.0.0.1 at 2015-08-12 15:30:18 +0300
+
+AbstractController::ActionNotFound (The action 'show' could not be found for OrganizationsController):
+  actionpack (4.2.0) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:30:21 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (1.2ms)
+  Rendered organizations/_organization.html.erb (0.9ms)
+  Rendered organizations/_organization.html.erb (0.8ms)
+  [1m[35mOrganization Load (0.5ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (0.3ms)
+  Rendered organizations/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 54ms (Views: 48.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:30:21 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.6ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (1.0ms)
+  Rendered organizations/_organization.html.erb (0.9ms)
+  Rendered organizations/_organization.html.erb (0.9ms)
+  [1m[36mOrganization Load (0.5ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (0.3ms)
+  Rendered organizations/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 54ms (Views: 49.6ms | ActiveRecord: 1.5ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:38:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.1ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (169.4ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  Rendered organizations/_organization.html.erb (11.0ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2.9ms)
+  Rendered organizations/index.html.erb within layouts/application (270.0ms)
+Completed 200 OK in 8966ms (Views: 8706.9ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:39:15 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (13.2ms)
+  Rendered organizations/_organization.html.erb (12.2ms)
+  Rendered organizations/_organization.html.erb (11.0ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (2.9ms)
+  Rendered organizations/index.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 444ms (Views: 411.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:39:25 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (14.1ms)
+  Rendered organizations/_organization.html.erb (14.8ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  [1m[35mOrganization Load (1.3ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (4.2ms)
+  Rendered organizations/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 57840ms (Views: 399.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:50:02 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (12.8ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.2ms)
+  Rendered organizations/index.html.erb within layouts/application (69.9ms)
+Completed 200 OK in 416ms (Views: 393.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/organizations/92/projects" for 127.0.0.1 at 2015-08-12 15:50:11 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"92"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 92]]
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1  [["organization_id", 92]]
+  Rendered projects/_project.html.erb (19.9ms)
+  Rendered projects/index.html.erb within layouts/application (78.2ms)
+Completed 200 OK in 466ms (Views: 394.3ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/organizations/" for 127.0.0.1 at 2015-08-12 15:55:46 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (11.7ms)
+  Rendered organizations/_organization.html.erb (11.8ms)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.0ms)
+  Rendered organizations/index.html.erb within layouts/application (98.6ms)
+Completed 200 OK in 652ms (Views: 417.1ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/organizations/94/projects" for 127.0.0.1 at 2015-08-12 15:55:56 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"94"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1  [["organization_id", 94]]
+  Rendered projects/_project.html.erb (12.1ms)
+  Rendered projects/index.html.erb within layouts/application (63.2ms)
+Completed 200 OK in 466ms (Views: 413.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/organizations/94/edit" for 127.0.0.1 at 2015-08-12 15:56:01 +0300
+Processing by OrganizationsController#edit as HTML
+  Parameters: {"id"=>"94"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 27ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:01 +0300
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (300.7ms)
+Completed 200 OK in 642ms (Views: 626.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:56:06 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (13.4ms)
+  Rendered organizations/_organization.html.erb (11.8ms)
+  Rendered organizations/_organization.html.erb (12.8ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.0ms)
+  Rendered organizations/index.html.erb within layouts/application (72.5ms)
+Completed 200 OK in 426ms (Views: 399.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/organizations/98/edit" for 127.0.0.1 at 2015-08-12 15:56:16 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"98"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 20ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:16 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (260.1ms)
+Completed 200 OK in 620ms (Views: 604.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:56:32 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.3ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (12.9ms)
+  Rendered organizations/_organization.html.erb (12.5ms)
+  Rendered organizations/_organization.html.erb (12.4ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.4ms)
+  Rendered organizations/index.html.erb within layouts/application (108.6ms)
+Completed 200 OK in 702ms (Views: 455.5ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/organizations/98/edit" for 127.0.0.1 at 2015-08-12 15:56:39 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"98"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:39 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (254.2ms)
+Completed 200 OK in 611ms (Views: 594.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/organizations/98/edit" for 127.0.0.1 at 2015-08-12 15:56:41 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"98"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 23ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:41 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (255.9ms)
+Completed 200 OK in 652ms (Views: 632.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/organizations/92/edit" for 127.0.0.1 at 2015-08-12 15:56:42 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"92"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:42 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (264.7ms)
+Completed 200 OK in 651ms (Views: 635.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 15:56:42 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:42 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (271.1ms)
+Completed 200 OK in 606ms (Views: 590.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/organizations/98/edit" for 127.0.0.1 at 2015-08-12 15:56:52 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"98"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:56:52 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (265.1ms)
+Completed 200 OK in 602ms (Views: 586.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 15:57:36 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.2ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (12.6ms)
+  Rendered organizations/_organization.html.erb (13.3ms)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.2ms)
+  Rendered organizations/index.html.erb within layouts/application (106.4ms)
+Completed 200 OK in 676ms (Views: 439.5ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/organizations/98/edit" for 127.0.0.1 at 2015-08-12 15:57:42 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"98"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 22ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 15:57:42 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (240.8ms)
+Completed 200 OK in 606ms (Views: 587.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:01:01 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (16.7ms)
+  Rendered organizations/_organization.html.erb (10.2ms)
+  Rendered organizations/_organization.html.erb (9.7ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2.5ms)
+  Rendered organizations/index.html.erb within layouts/application (111.2ms)
+Completed 200 OK in 208693ms (Views: 377.7ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:04:38 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 49830ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:05:28 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (259.8ms)
+Completed 200 OK in 91333ms (Views: 595.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:07:02 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (12.7ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  Rendered organizations/_organization.html.erb (10.9ms)
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (2.8ms)
+  Rendered organizations/index.html.erb within layouts/application (95.7ms)
+Completed 200 OK in 3695ms (Views: 407.8ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:07:10 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:07:10 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (246.1ms)
+Completed 200 OK in 566ms (Views: 550.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:07:29 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (12.3ms)
+  Rendered organizations/_organization.html.erb (19.5ms)
+  Rendered organizations/_organization.html.erb (12.5ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2.8ms)
+  Rendered organizations/index.html.erb within layouts/application (108.2ms)
+Completed 200 OK in 666ms (Views: 427.0ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:07:35 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 25ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:07:35 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (226.1ms)
+Completed 200 OK in 565ms (Views: 548.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:08:44 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.3ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (13.2ms)
+  Rendered organizations/_organization.html.erb (29.9ms)
+  Rendered organizations/_organization.html.erb (12.4ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.4ms)
+  Rendered organizations/index.html.erb within layouts/application (126.4ms)
+Completed 200 OK in 645ms (Views: 428.2ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:08:49 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 20ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:08:49 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (249.0ms)
+Completed 200 OK in 587ms (Views: 570.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:08:58 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:08:58 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (250.4ms)
+Completed 200 OK in 586ms (Views: 571.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2015-08-12 16:11:17 +0300
+
+ActionController::RoutingError (No route matches [GET] "/user"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<top (required)>'
+  ruby-debug-ide (0.4.23.beta11) lib/ruby-debug-ide.rb:86:in `debug_load'
+  ruby-debug-ide (0.4.23.beta11) lib/ruby-debug-ide.rb:86:in `debug_program'
+  ruby-debug-ide (0.4.23.beta11) bin/rdebug-ide:116:in `<top (required)>'
+  -e:1:in `load'
+  -e:1:in `<main>'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (28.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (63.7ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.8ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.3ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (726.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-08-12 16:11:37 +0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY row_order asc LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered users/_users.html.erb (122.8ms)
+  Rendered users/index.html.erb within layouts/application (137.3ms)
+Completed 200 OK in 520ms (Views: 496.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-08-12 16:14:31 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY row_order asc LIMIT 4 OFFSET 0
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered users/_users.html.erb (99.8ms)
+  Rendered users/index.html.erb within layouts/application (113.7ms)
+Completed 200 OK in 650ms (Views: 460.2ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:14:36 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (12.9ms)
+  Rendered organizations/_organization.html.erb (19.0ms)
+  Rendered organizations/_organization.html.erb (14.1ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.3ms)
+  Rendered organizations/index.html.erb within layouts/application (111.5ms)
+Completed 200 OK in 502ms (Views: 437.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:22:45 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (14.0ms)
+  Rendered organizations/_organization.html.erb (12.2ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  [1m[36mOrganization Load (1.2ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.2ms)
+  Rendered organizations/index.html.erb within layouts/application (104.7ms)
+Completed 200 OK in 689ms (Views: 433.2ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:22:51 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:22:51 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (266.7ms)
+Completed 200 OK in 619ms (Views: 601.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:23:37 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.2ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (13.9ms)
+  Rendered organizations/_organization.html.erb (12.3ms)
+  Rendered organizations/_organization.html.erb (12.4ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.4ms)
+  Rendered organizations/index.html.erb within layouts/application (107.4ms)
+Completed 200 OK in 693ms (Views: 441.7ms | ActiveRecord: 11.2ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:24:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (165.5ms)
+  Rendered organizations/_organization.html.erb (23.8ms)
+  Rendered organizations/_organization.html.erb (14.2ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2.8ms)
+  Rendered organizations/index.html.erb within layouts/application (284.0ms)
+Completed 200 OK in 8996ms (Views: 8746.7ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:24:35 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:24:36 +0300
+Processing by UsersController#new as JS
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (350.4ms)
+Completed 200 OK in 670ms (Views: 654.3ms | ActiveRecord: 1.0ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from require at /home/mike/HelloRails/bin/rails:4)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:25:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (166.0ms)
+  Rendered organizations/_organization.html.erb (12.9ms)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2.8ms)
+  Rendered organizations/index.html.erb within layouts/application (277.7ms)
+Completed 200 OK in 8925ms (Views: 8668.1ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:29:48 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (12.7ms)
+  Rendered organizations/_organization.html.erb (24.8ms)
+  Rendered organizations/_organization.html.erb (11.4ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (2.9ms)
+  Rendered organizations/index.html.erb within layouts/application (114.8ms)
+Completed 200 OK in 619ms (Views: 405.8ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/organizations/92/edit" for 127.0.0.1 at 2015-08-12 16:29:54 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"92"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 92]]
+  Rendered organizations/_new.html.erb (166.7ms)
+  Rendered organizations/edit.js.erb (173.8ms)
+Completed 200 OK in 213ms (Views: 184.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:29:56 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (15.0ms)
+  Rendered organizations/_organization.html.erb (14.2ms)
+  Rendered organizations/_organization.html.erb (11.4ms)
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.3ms)
+  Rendered organizations/index.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 416ms (Views: 394.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:31:10 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (13.0ms)
+  Rendered organizations/_organization.html.erb (11.6ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.1ms)
+  Rendered organizations/index.html.erb within layouts/application (69.2ms)
+Completed 200 OK in 412ms (Views: 383.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/organizations/89/edit" for 127.0.0.1 at 2015-08-12 16:31:22 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"89"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.7ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 89]]
+  Rendered organizations/_new.html.erb (94.6ms)
+  Rendered organizations/edit.js.erb (99.2ms)
+Completed 200 OK in 134ms (Views: 108.2ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/organizations/89" for 127.0.0.1 at 2015-08-12 16:31:24 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"Svitla", "description"=>"Systems"}, "commit"=>"Update Organization", "id"=>"89"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:31:24 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (269.4ms)
+Completed 200 OK in 608ms (Views: 592.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/organizations/89" for 127.0.0.1 at 2015-08-12 16:31:25 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"Svitla", "description"=>"Systems"}, "commit"=>"Update Organization", "id"=>"89"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:31:26 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (247.8ms)
+Completed 200 OK in 565ms (Views: 550.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/organizations/89" for 127.0.0.1 at 2015-08-12 16:31:26 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"Svitla", "description"=>"Systems"}, "commit"=>"Update Organization", "id"=>"89"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:31:26 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (234.2ms)
+Completed 200 OK in 568ms (Views: 552.5ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/organizations/89" for 127.0.0.1 at 2015-08-12 16:31:35 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"Svitla", "description"=>"Systems"}, "commit"=>"Update Organization", "id"=>"89"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 20ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-08-12 16:31:35 +0300
+Processing by UsersController#new as JS
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/new.html.erb within layouts/application (259.9ms)
+Completed 200 OK in 597ms (Views: 582.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:31:59 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (14.0ms)
+  Rendered organizations/_organization.html.erb (12.5ms)
+  Rendered organizations/_organization.html.erb (12.4ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.2ms)
+  Rendered organizations/index.html.erb within layouts/application (133.4ms)
+Completed 200 OK in 698ms (Views: 442.3ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/organizations/92/edit" for 127.0.0.1 at 2015-08-12 16:32:05 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"92"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 92]]
+  Rendered organizations/_new.html.erb (95.3ms)
+  Rendered organizations/edit.js.erb (100.2ms)
+Completed 200 OK in 135ms (Views: 109.0ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/organizations/92" for 127.0.0.1 at 2015-08-12 16:32:08 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"Organization", "description"=>"#1"}, "commit"=>"Update Organization", "id"=>"92"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 92]]
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "organizations" SET "description" = $1, "updated_at" = $2 WHERE "organizations"."id" = $3  [["description", "#1"], ["updated_at", "2015-08-12 13:32:08.559656"], ["id", 92]]
+  [1m[36m (19.6ms)[0m  [1mCOMMIT[0m
+  Rendered organizations/_organization.html.erb (38.7ms)
+  Rendered organizations/update.js.erb (46.6ms)
+Completed 200 OK in 145ms (Views: 56.7ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/organizations/89/projects" for 127.0.0.1 at 2015-08-12 16:36:25 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"89"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 89]]
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1  [["organization_id", 89]]
+  Rendered projects/_project.html.erb (21.7ms)
+  Rendered projects/_project.html.erb (11.8ms)
+  Rendered projects/_project.html.erb (12.0ms)
+  Rendered projects/index.html.erb within layouts/application (113.2ms)
+Completed 200 OK in 524ms (Views: 454.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:43:35 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.2ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (8.3ms)
+  Rendered organizations/index.html.erb within layouts/application (56.7ms)
+Completed 500 Internal Server Error in 320ms
+
+ActionView::Template::Error (wrong number of arguments (5 for 2..3)):
+     6: 
+     7:       <div class="col-sm-4">
+     8: 
+     9:         <% if allow? :organizations, :index, nil,current_user, organization.creator_id %>  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    10:                                                 edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div><%end%>
+    11: 
+    12: 
+  app/models/permissions/base_permission.rb:3:in `allow?'
+  app/controllers/application_controller.rb:5:in `allow?'
+  app/views/organizations/_organization.html.erb:9:in `_app_views_organizations__organization_html_erb__821618522341637215_57728740'
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb___2891887883853430442_24527400'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb___2891887883853430442_24527400'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (356.2ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (97.4ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.3ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (487.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:43:41 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.1ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (5.4ms)
+  Rendered organizations/index.html.erb within layouts/application (17.3ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (wrong number of arguments (5 for 2..3)):
+     6: 
+     7:       <div class="col-sm-4">
+     8: 
+     9:         <% if allow? :organizations, :index, nil,current_user, organization.creator_id %>  <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    10:                                                 edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div><%end%>
+    11: 
+    12: 
+  app/models/permissions/base_permission.rb:3:in `allow?'
+  app/controllers/application_controller.rb:5:in `allow?'
+  app/views/organizations/_organization.html.erb:9:in `_app_views_organizations__organization_html_erb__821618522341637215_57728740'
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb___2891887883853430442_24527400'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb___2891887883853430442_24527400'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (356.9ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (96.4ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.1ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (487.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:44:30 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (25.0ms)
+  Rendered organizations/_organization.html.erb (12.2ms)
+  Rendered organizations/_organization.html.erb (11.5ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (11.8ms)
+  Rendered organizations/index.html.erb within layouts/application (90.4ms)
+Completed 200 OK in 449ms (Views: 424.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/organizations/94/edit" for 127.0.0.1 at 2015-08-12 16:44:35 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"94"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  Rendered organizations/_new.html.erb (101.4ms)
+  Rendered organizations/edit.js.erb (106.3ms)
+Completed 200 OK in 145ms (Views: 115.3ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/organizations/94" for 127.0.0.1 at 2015-08-12 16:44:37 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"NewOrganization5", "description"=>"1#"}, "commit"=>"Update Organization", "id"=>"94"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.6ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1[0m  [["id", 94]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "organizations" SET "description" = $1, "updated_at" = $2 WHERE "organizations"."id" = $3[0m  [["description", "1#"], ["updated_at", "2015-08-12 13:44:38.004310"], ["id", 94]]
+  [1m[35m (11.7ms)[0m  COMMIT
+  Rendered organizations/_organization.html.erb (24.2ms)
+  Rendered organizations/update.js.erb (29.4ms)
+Completed 200 OK in 128ms (Views: 52.3ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/organizations/94/edit" for 127.0.0.1 at 2015-08-12 16:44:38 +0300
+Processing by OrganizationsController#edit as JS
+  Parameters: {"id"=>"94"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.8ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 94]]
+  Rendered organizations/_new.html.erb (99.0ms)
+  Rendered organizations/edit.js.erb (104.5ms)
+Completed 200 OK in 141ms (Views: 114.6ms | ActiveRecord: 2.8ms)
+
+
+Started PATCH "/organizations/94" for 127.0.0.1 at 2015-08-12 16:44:44 +0300
+Processing by OrganizationsController#update as JS
+  Parameters: {"utf8"=>"✓", "organization"=>{"name"=>"NewOrganization5", "description"=>"#"}, "commit"=>"Update Organization", "id"=>"94"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 94]]
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "organizations" SET "description" = $1, "updated_at" = $2 WHERE "organizations"."id" = $3  [["description", "#"], ["updated_at", "2015-08-12 13:44:44.127209"], ["id", 94]]
+  [1m[36m (23.7ms)[0m  [1mCOMMIT[0m
+  Rendered organizations/_organization.html.erb (11.9ms)
+  Rendered organizations/update.js.erb (17.1ms)
+Completed 200 OK in 117ms (Views: 26.4ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:45:28 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.1ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (13.0ms)
+  Rendered organizations/index.html.erb within layouts/application (25.0ms)
+Completed 500 Internal Server Error in 56ms
+
+SyntaxError (/home/mike/HelloRails/app/views/organizations/_organization.html.erb:9: syntax error, unexpected ';'
+...allow? :organizations, :edit, ;@output_buffer.safe_append=' ...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:13: syntax error, unexpected ';'
+...ow? :organizations, :destroy, ;@output_buffer.safe_append=' ...
+...                               ^
+/home/mike/HelloRails/app/views/organizations/_organization.html.erb:18: syntax error, unexpected keyword_end, expecting end-of-input
+...afe_append='</div> '.freeze;end;@output_buffer.safe_append='
+...                               ^):
+  app/views/organizations/_organization.html.erb:9: syntax error, unexpected ';'
+  app/views/organizations/_organization.html.erb:13: syntax error, unexpected ';'
+  app/views/organizations/_organization.html.erb:18: syntax error, unexpected keyword_end, expecting end-of-input
+  app/views/organizations/index.html.erb:6:in `block in _app_views_organizations_index_html_erb___2891887883853430442_24527400'
+  app/views/organizations/index.html.erb:4:in `_app_views_organizations_index_html_erb___2891887883853430442_24527400'
+  app/controllers/organizations_controller.rb:6:in `index'
+
+
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (386.6ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (89.3ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.2ms)
+  Rendered /home/mike/.rvm/gems/ruby-2.1.6@growup/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (510.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:45:47 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (24.9ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  Rendered organizations/_organization.html.erb (11.9ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (11.8ms)
+  Rendered organizations/index.html.erb within layouts/application (92.2ms)
+Completed 200 OK in 459ms (Views: 431.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:46:48 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (6.8ms)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (6.5ms)
+  Rendered organizations/index.html.erb within layouts/application (88.3ms)
+Completed 200 OK in 698ms (Views: 463.6ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:47:00 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (6.9ms)
+  Rendered organizations/_organization.html.erb (6.3ms)
+  Rendered organizations/_organization.html.erb (6.1ms)
+  [1m[35mOrganization Load (1.4ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (6.4ms)
+  Rendered organizations/index.html.erb within layouts/application (99.6ms)
+Completed 200 OK in 647ms (Views: 417.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:47:31 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (6.7ms)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/_organization.html.erb (6.4ms)
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (7.0ms)
+  Rendered organizations/index.html.erb within layouts/application (91.2ms)
+Completed 200 OK in 673ms (Views: 432.4ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:47:44 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (7.0ms)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/_organization.html.erb (7.0ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (6.3ms)
+  Rendered organizations/index.html.erb within layouts/application (91.9ms)
+Completed 200 OK in 679ms (Views: 426.3ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:48:06 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (7.4ms)
+  Rendered organizations/_organization.html.erb (6.6ms)
+  Rendered organizations/_organization.html.erb (6.3ms)
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (8.1ms)
+  Rendered organizations/index.html.erb within layouts/application (95.9ms)
+Completed 200 OK in 694ms (Views: 444.9ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:48:21 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (7.1ms)
+  Rendered organizations/_organization.html.erb (6.3ms)
+  Rendered organizations/_organization.html.erb (6.1ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (6.5ms)
+  Rendered organizations/index.html.erb within layouts/application (106.5ms)
+Completed 200 OK in 667ms (Views: 429.4ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:49:30 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (21.5ms)
+  Rendered organizations/_organization.html.erb (6.5ms)
+  Rendered organizations/_organization.html.erb (6.4ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (6.5ms)
+  Rendered organizations/index.html.erb within layouts/application (105.7ms)
+Completed 200 OK in 661ms (Views: 428.4ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:54:06 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (6.5ms)
+  Rendered organizations/_organization.html.erb (6.3ms)
+  Rendered organizations/_organization.html.erb (6.3ms)
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (6.1ms)
+  Rendered organizations/index.html.erb within layouts/application (90.1ms)
+Completed 200 OK in 700ms (Views: 427.1ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:54:44 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (1.0ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (6.8ms)
+  Rendered organizations/_organization.html.erb (6.4ms)
+  Rendered organizations/_organization.html.erb (6.1ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (6.3ms)
+  Rendered organizations/index.html.erb within layouts/application (88.3ms)
+Completed 200 OK in 672ms (Views: 420.9ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:55:10 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (3.4ms)
+  Rendered organizations/_organization.html.erb (3.0ms)
+  Rendered organizations/_organization.html.erb (3.0ms)
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (2.9ms)
+  Rendered organizations/index.html.erb within layouts/application (96.0ms)
+Completed 200 OK in 667ms (Views: 428.4ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:55:32 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.9ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (7.0ms)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/_organization.html.erb (6.0ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (6.0ms)
+  Rendered organizations/index.html.erb within layouts/application (105.2ms)
+Completed 200 OK in 676ms (Views: 438.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:55:54 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (6.7ms)
+  Rendered organizations/_organization.html.erb (23.7ms)
+  Rendered organizations/_organization.html.erb (6.1ms)
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/index.html.erb within layouts/application (106.3ms)
+Completed 200 OK in 673ms (Views: 439.2ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:56:00 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (6.4ms)
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/_organization.html.erb (6.4ms)
+  [1m[36mOrganization Load (1.1ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (6.3ms)
+  Rendered organizations/index.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 471ms (Views: 448.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-08-12 16:56:28 +0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY row_order asc LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered users/_users.html.erb (122.1ms)
+  Rendered users/index.html.erb within layouts/application (139.3ms)
+Completed 200 OK in 508ms (Views: 486.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at 2015-08-12 16:56:38 +0300
+Processing by UsersController#index as JS
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  ORDER BY row_order asc LIMIT 4 OFFSET 4
+  Rendered users/_users.html.erb (90.2ms)
+  Rendered users/index.js.erb (98.6ms)
+Completed 200 OK in 126ms (Views: 107.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at 2015-08-12 16:56:40 +0300
+Processing by UsersController#index as JS
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY row_order asc LIMIT 4 OFFSET 0
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered users/_users.html.erb (79.9ms)
+  Rendered users/index.js.erb (87.1ms)
+Completed 200 OK in 115ms (Views: 93.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-08-12 16:58:23 +0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY row_order asc LIMIT 4 OFFSET 0[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered users/_users.html.erb (90.0ms)
+  Rendered users/index.html.erb within layouts/application (101.5ms)
+Completed 200 OK in 494ms (Views: 444.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:58:27 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (25.4ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  Rendered organizations/_organization.html.erb (11.8ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (6.2ms)
+  Rendered organizations/index.html.erb within layouts/application (103.7ms)
+Completed 200 OK in 480ms (Views: 449.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 16:58:55 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (12.6ms)
+  Rendered organizations/_organization.html.erb (12.2ms)
+  Rendered organizations/_organization.html.erb (12.1ms)
+  [1m[35mOrganization Load (1.7ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.1ms)
+  Rendered organizations/index.html.erb within layouts/application (101.8ms)
+Completed 200 OK in 642ms (Views: 425.1ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 17:00:45 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.8ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)
+  Rendered organizations/_organization.html.erb (13.2ms)
+  Rendered organizations/_organization.html.erb (12.7ms)
+  Rendered organizations/_organization.html.erb (25.1ms)
+  [1m[36mOrganization Load (0.9ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)[0m
+  Rendered organizations/_organization.html.erb (3.3ms)
+  Rendered organizations/index.html.erb within layouts/application (84.7ms)
+Completed 200 OK in 416ms (Views: 391.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 17:00:59 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (17.2ms)
+  Rendered organizations/_organization.html.erb (18.1ms)
+  Rendered organizations/_organization.html.erb (16.3ms)
+  [1m[35mOrganization Load (0.7ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (4.0ms)
+  Rendered organizations/index.html.erb within layouts/application (91.9ms)
+Completed 200 OK in 506ms (Views: 448.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/organizations/94/projects" for 127.0.0.1 at 2015-08-12 17:01:07 +0300
+Processing by ProjectsController#index as HTML
+  Parameters: {"organization_id"=>"94"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.6ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = $1 LIMIT 1  [["id", 94]]
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."organization_id" = $1[0m  [["organization_id", 94]]
+  Rendered projects/_project.html.erb (14.5ms)
+  Rendered projects/index.html.erb within layouts/application (64.4ms)
+Completed 200 OK in 454ms (Views: 397.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 17:07:19 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mOrganization Load (1.0ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE (creator_id = 1)[0m
+  Rendered organizations/_organization.html.erb (12.9ms)
+  Rendered organizations/_organization.html.erb (26.4ms)
+  Rendered organizations/_organization.html.erb (13.2ms)
+  [1m[35mOrganization Load (1.4ms)[0m  SELECT "organizations".* FROM "organizations" WHERE (creator_id != 1)
+  Rendered organizations/_organization.html.erb (3.2ms)
+  Rendered organizations/index.html.erb within layouts/application (88.4ms)
+Completed 200 OK in 431ms (Views: 404.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/organizations" for 127.0.0.1 at 2015-08-12 17:09:09 +0300
+Processing by OrganizationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mOrganization Load (0.7ms)[0m  SELECT "organizations".* FROM "organizations" WHERE "organizations"."creator_id" = 1
+  Rendered organizations/_organization.html.erb (12.8ms)
+  Rendered organizations/_organization.html.erb (12.0ms)
+  Rendered organizations/_organization.html.erb (12.0ms)
+  [1m[36mOrganization Load (0.8ms)[0m  [1mSELECT "organizations".* FROM "organizations" WHERE ("organizations"."creator_id" != 1)[0m
+  Rendered organizations/_organization.html.erb (3.1ms)
+  Rendered organizations/index.html.erb within layouts/application (104.3ms)
+Completed 200 OK in 672ms (Views: 436.5ms | ActiveRecord: 8.6ms)
