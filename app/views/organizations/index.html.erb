@@ -1,3 +1,4 @@
+<h3> My organizations </h3>
 <ul id="organizationsList" class="list-group" >
 
   <% @organizations.each do |organization| %>
@@ -6,7 +7,17 @@
 
   <%end%>
 </ul>
-
 <div>
-  <%= link_to "Create new organization",new_organization_path, remote:true , id:"createNewOrganization", class:"btn btn-lg btn-primary"  %>
+  <%= link_to "Create new organization",new_organization_path, remote:true , id:"createNewOrganization", class:"btn btn-md btn-primary"  %>
 </div>
+
+<h3> Shared organizations </h3>
+<ul id="shared_organizationsList" class="list-group" >
+
+  <% @shared_organizations.each do |organization| %>
+
+      <%= render partial: 'organization', locals: {organization:organization }%>
+
+  <%end%>
+</ul>
+

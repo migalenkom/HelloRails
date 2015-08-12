@@ -24,7 +24,7 @@
         <% if allow? :users, :index %><li <% if current_page?(users_path)%>class="active"<%end%> > <%= link_to "Admin page", users_path %> </li><%end%>
         <% if allow? :users, :show  %><li <% if current_page?(user_path(session[:user_id]))%>class="active"<%end%> > <%= link_to "Profile", user_path(session[:user_id]) %> </li><%end%>
         <% if allow? :uploads, :new  %><li <% if current_page?(new_upload_path)%>class="active"<%end%> > <%= link_to "Upload Files",  new_upload_path%> </li><%end%>
-        <li <% if current_page?(organizations_path)%>class="active"<%end%> > <%= link_to "Organizations",  organizations_path%> </li>
+        <% if allow? :organizations, :index %><li <% if current_page?(organizations_path)%>class="active"<%end%> > <%= link_to "Organizations",  organizations_path%> </li><%end%>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if current_user %>
