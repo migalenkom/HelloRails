@@ -1,13 +1,8 @@
 module Permissions
   class BasePermission
-    def allow?(controller, action, resource = nil) #, user = nil, organization_creator_id = nil
+    def allow?(controller, action, resource = nil)
       allowed = @allow_all || @allowed_actions[[controller.to_s, action.to_s]]
-      # if organization_creator_id
-      #   allow_manage = user.id == organization_creator_id
-      # else
-      #   allow_manage = true
-      # end
-      allowed &&(allowed == true || resource && allowed.call(resource))
+      allowed && ( allowed == true || resource && allowed.call(resource))
     end
 
 

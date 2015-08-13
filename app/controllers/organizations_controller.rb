@@ -76,6 +76,11 @@ class OrganizationsController < ApplicationController
       format.js
     end
   end
+  def current_resource
+    @current_resource ||= Organization.find(params[:id]) if params[:id]
+  end
+
+  private
 
   def organization_params
     params.require(:organization).permit(:name, :description)

@@ -3,7 +3,7 @@
 
   <% @organizations.each do |organization| %>
 
-      <%= render partial: 'organization', locals: {organization:organization }%>
+      <%= render 'organization', organization:organization%>
 
   <%end%>
 </ul>
@@ -16,7 +16,7 @@
 
   <% @shared_organizations.each do |organization| %>
 
-      <%= render partial: 'organization', locals: {organization:organization }%>
+      <%= render 'organization', organization:organization%>
 
   <%end%>
 </ul>
