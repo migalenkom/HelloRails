@@ -6,7 +6,13 @@ module Permissions
       allow :uploads, [:index,:new,:create,:destroy,:update,:show]
       allow :organizations, [:index,:new,:create,:destroy,:update,:show,:edit]
       allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
-
+      allow :organizations, [:index,:new,:create,:show,:update]
+      allow :organizations, [:destroy,:edit] do |o|
+        o.creator_id == user.id
+      end
+      allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
+      allow :members, [:index]
+      allow :members,[:new,:create,:destroy]
       # allow_param :name, :email
     end
   end

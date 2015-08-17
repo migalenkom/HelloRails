@@ -16,6 +16,7 @@ Growup::Application.routes.draw do
   resources :uploads
   resources :organizations  do
      resources :projects
+     resources :members
   end
 
 

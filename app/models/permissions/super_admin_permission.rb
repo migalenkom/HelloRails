@@ -11,14 +11,19 @@ module Permissions
       end
       allow :sessions, [:new, :create, :destroy]
       allow :uploads, [:index,:new,:create,:destroy,:update,:show]
-      allow :organizations, [:index,:new,:create,:show,:update]
+      allow :organizations, [:index,:new,:create,:destroy,:update]
       allow :organizations, [:destroy,:edit] do |o|
-
         o.creator_id == user.id
+      end
+      allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
+      allow :members, [:index,:new,:create]
+
+      allow :members, [:destroy] do |mbr|
+
+        mbr.creator_id == user.id
 
       end
 
-      allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
       allow_param :user, [:name,:email,:isAdmin,:superAdmin,:password,:password_confirmation,:row_order,:avatar]
 
     end

@@ -1,0 +1,12 @@
+<h3> Organization members </h3>
+<ul id="membersList" class="list-group" >
+
+  <% @members.each do |member| %>
+
+      <%= render  'member', member:member, organization:@organization %>
+
+  <%end%>
+</ul>
+<div>
+  <%= link_to "Add Member to organization", new_organization_member_path, remote:true , id:"createNewMember", class:"btn btn-md btn-primary" %>
+</div>
