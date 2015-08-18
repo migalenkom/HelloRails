@@ -8,7 +8,7 @@
   <%end%>
 </ul>
 <div>
-  <%= link_to "Create new organization",new_organization_path, remote:true , id:"createNewOrganization", class:"btn btn-md btn-primary"  %>
+  <%= link_to "Create new organization",new_organization_path, remote:true , id:"createNewOrganization", data:{toggle:"popover",container:"body"}, class:"btn btn-md btn-primary"%>
 </div>
 
 <h3> Shared organizations </h3>

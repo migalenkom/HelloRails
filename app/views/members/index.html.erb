@@ -8,5 +8,5 @@
   <%end%>
 </ul>
 <div>
-  <%= link_to "Add Member to organization", new_organization_member_path, remote:true , id:"createNewMember", class:"btn btn-md btn-primary" %>
+  <%if allow? :members, :destroy, @organization %> <%= link_to "Add Member to organization", new_organization_member_path, remote:true, id:"createNewMember", data:{toggle:"popover",container:"body",placement:"bottom"}, class:"btn btn-md btn-primary" %><%end%>
 </div>

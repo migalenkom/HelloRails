@@ -6,7 +6,7 @@
   <div class="col-sm-4">
 
     <div class="col-sm-6"> <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                                       edit_organization_project_path(organization,project),remote: true ,:id => 'editProject',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div>
+                                       edit_organization_project_path(organization,project),remote: true ,:id => 'editProject', data:{toggle:"popover",container:"body",placement:"bottom"},:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div>
 
 
     <div class="col-sm-6"><%= link_to t('.destroy', :default => t("helpers.links.destroy")),

@@ -16,9 +16,9 @@ module Permissions
         o.creator_id == user.id
       end
       allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
-      allow :members, [:index,:new,:create]
+      allow :members, [:index]
 
-      allow :members, [:destroy] do |mbr|
+      allow :members, [:destroy,:new,:create] do |mbr|
 
         mbr.creator_id == user.id
 

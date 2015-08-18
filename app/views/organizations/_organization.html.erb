@@ -6,7 +6,7 @@
       <div class="col-sm-3">
 
         <% if allow? :organizations, :edit, organization %> <div class="col-sm-6"> <%= link_to "",
-                                                edit_organization_path(organization),remote: true ,:id => 'editOrganization',:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div>
+                                                edit_organization_path(organization),remote: true ,:id => 'editOrganization', data:{toggle:"popover",container:"body"},:class => 'btn btn-mini glyphicon glyphicon-pencil' %></div>
         <%end%>
 
         <% if allow? :organizations, :destroy, organization %> <div class="col-sm-6"><%= link_to "",
