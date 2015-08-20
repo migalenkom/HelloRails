@@ -13,6 +13,7 @@ module Permissions
       allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
       allow :members, [:index]
       allow :members,[:new,:create,:destroy]
+      allow :columns, [:index,:new,:create,:destroy,:update,:show,:edit]
       # allow_param :name, :email
     end
   end

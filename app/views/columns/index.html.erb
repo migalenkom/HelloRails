@@ -1,0 +1,11 @@
+<div id="Columns" class="row">
+
+    <% @columns.each do |column| %>
+
+      <%= render  'columns/column', column:column, project:@project %>
+
+
+  <%end%>
+
+</div>
+<%= link_to "Add column", new_project_column_path, remote:true , id:"createNewColumn", data:{toggle:"popover",container:"body",placement:"bottom"}, class:"btn btn-md btn-primary" %>

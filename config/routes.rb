@@ -1,8 +1,6 @@
 Growup::Application.routes.draw do
 
   resources :users
-
-
   match "reset_password" => "users#resetpass", :as => "reset_pass", via: [:post, :get]
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
@@ -18,6 +16,13 @@ Growup::Application.routes.draw do
      resources :projects
      resources :members
   end
+  resources :projects  do
+    resources :columns
+  end
+
+  # resources :columns do
+  #   resources :tasks
+  # end
 
 
   # The priority is based upon order of creation:

@@ -17,12 +17,10 @@ module Permissions
       end
       allow :projects, [:index,:new,:create,:destroy,:update,:show,:edit]
       allow :members, [:index]
-
       allow :members, [:destroy,:new,:create] do |mbr|
-
         mbr.creator_id == user.id
-
       end
+      allow :columns, [:index,:new,:create,:destroy,:update,:show,:edit]
 
       allow_param :user, [:name,:email,:isAdmin,:superAdmin,:password,:password_confirmation,:row_order,:avatar]
 

@@ -1,0 +1,2 @@
+$('#editColumn').popover("destroy");
+$('#sortableColumnsList<%=@column.id%>').replaceWith($("<%= j render 'columns/column', column:@column %>"));

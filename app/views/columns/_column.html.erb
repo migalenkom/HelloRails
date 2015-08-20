@@ -1,0 +1,51 @@
+<div class="col-md-4" id="sortableColumnsList<%=column.id%>">
+  <h4><%= column.name %></h4>
+  <%= link_to '',edit_project_column_path(@project,column),remote: true ,:id => 'editColumn', data:{toggle:"popover",container:"body",placement:"bottom"},:class => 'btn btn-mini glyphicon glyphicon-pencil' %>
+
+  <%= link_to '',project_column_path(@project,column),
+              :method => :delete,
+              remote: true,
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-mini glyphicon glyphicon-remove' %>
+
+  <ul class="connectedSortable sortableColumnsList" >
+
+    <li class="ui-state-default">Item 1</li>
+    <li class="ui-state-default">Item 2</li>
+    <li class="ui-state-default">Item 3</li>
+    <li class="ui-state-default">Item 4</li>
+    <li class="ui-state-default">Item 5</li>
+
+  </ul>
+</div>
+
+
+<script>
+    $(function() {
+        $(".sortableColumnsList" ).sortable({
+            connectWith: ".connectedSortable"
+        }).disableSelection();
+    });
+</script>
+
+<style>
+    .sortableColumnsList {
+        border: 1px solid #eee;
+        width: 142px;
+        min-height: 20px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .sortableColumnsList li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 1.2em;
+        width: 120px;
+    }
+</style>
+
+
