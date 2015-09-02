@@ -59,7 +59,7 @@ class ColumnsController < ApplicationController
           format.html { redirect_to  project_column_path}
           format.js
         end
-      end
+    end
     def current_resource
       @current_resource = Column.find_by_id(params[:id])
     end

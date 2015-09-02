@@ -85,6 +85,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    gelf (1.4.0)
+      json
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -119,7 +121,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    pg (0.18.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
@@ -221,12 +222,12 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
+  gelf
   jquery-fileupload-rails (= 0.4.1)
   jquery-rails
   jquery-ui-rails
   mysql2
   paperclip (~> 4.2)
-  pg
   quiet_assets
   rails (= 4.2.0)
   rspec-rails (~> 3.0)

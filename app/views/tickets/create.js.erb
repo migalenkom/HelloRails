@@ -1,0 +1,2 @@
+$('#createNewTicket').popover("destroy");
+$('#ticketsList').append($("<%= j render 'tickets/ticket', column:@column, ticket: @ticket %>"));

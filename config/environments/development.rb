@@ -28,4 +28,6 @@ Growup::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.logger = GELF::Logger.new("172.20.0.61", 12201, "WAN", { :facility => "HelloRails" })
+
 end

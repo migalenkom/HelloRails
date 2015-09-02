@@ -11,74 +11,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818144353) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20150902082919) do
 
   create_table "columns", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "position"
-    t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.integer  "project_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "creator_id"
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "creator_id",  limit: 4
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "name",            limit: 255
+    t.integer  "organization_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "projects", ["organization_id"], name: "index_projects_on_organization_id", using: :btree
 
+  create_table "tickets", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.integer  "column_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "uploads", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
+    t.string   "attachment_file_name",    limit: 255
+    t.string   "attachment_content_type", limit: 255
+    t.integer  "attachment_file_size",    limit: 4
     t.datetime "attachment_updated_at"
   end
 
   create_table "user_organizations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "organization_id"
+    t.integer "user_id",         limit: 4
+    t.integer "organization_id", limit: 4
   end
 
   add_index "user_organizations", ["organization_id"], name: "index_user_organizations_on_organization_id", using: :btree
   add_index "user_organizations", ["user_id"], name: "index_user_organizations_on_user_id", using: :btree
 
   create_table "user_uploads", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "upload_id"
+    t.integer "user_id",   limit: 4
+    t.integer "upload_id", limit: 4
   end
 
   add_index "user_uploads", ["upload_id"], name: "index_user_uploads_on_upload_id", using: :btree
   add_index "user_uploads", ["user_id"], name: "index_user_uploads_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.string   "email",               limit: 255
+    t.string   "password_hash",       limit: 255
+    t.string   "password_salt",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "isAdmin",             default: false, null: false
-    t.string   "name"
-    t.boolean  "superAdmin",          default: false, null: false
-    t.integer  "row_order"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.boolean  "isAdmin",             limit: 1,   default: false, null: false
+    t.string   "name",                limit: 255
+    t.boolean  "superAdmin",          limit: 1,   default: false, null: false
+    t.integer  "row_order",           limit: 4
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
   end
 

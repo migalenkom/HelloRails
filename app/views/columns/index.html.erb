@@ -9,3 +9,23 @@
 
 </div>
 <%= link_to "Add column", new_project_column_path, remote:true , id:"createNewColumn", data:{toggle:"popover",container:"body",placement:"bottom"}, class:"btn btn-md btn-primary" %>
+
+<style>
+    .sortableColumnsList {
+        border: 1px solid #eee;
+        width: 142px;
+        min-height: 20px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .sortableColumnsList li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 1.2em;
+        width: 120px;
+    }
+</style>

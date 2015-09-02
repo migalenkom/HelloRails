@@ -9,7 +9,7 @@ gem 'rails', '4.2.0'
 
 #gem 'sqlite3'
 gem 'mysql2'
-gem 'pg'
+# gem 'pg'
 gem 'will_paginate', '~> 3.0.6'
 gem "bcrypt-ruby", :require => "bcrypt"
 
@@ -45,6 +45,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'gelf'
 
   gem 'capistrano-rails'
   gem 'capistrano-rvm'

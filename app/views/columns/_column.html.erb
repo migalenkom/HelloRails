@@ -8,15 +8,17 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-mini glyphicon glyphicon-remove' %>
 
-  <ul class="connectedSortable sortableColumnsList" >
+  <ul class="connectedSortable sortableColumnsList" id="ticketsList">
 
-    <li class="ui-state-default">Item 1</li>
-    <li class="ui-state-default">Item 2</li>
-    <li class="ui-state-default">Item 3</li>
-    <li class="ui-state-default">Item 4</li>
-    <li class="ui-state-default">Item 5</li>
+    <%column.tickets.each do |ticket|%>
+
+    <%= render  'tickets/ticket',column:column, ticket:ticket %>
+    <%end%>
+
 
   </ul>
+  <%= link_to "+ Ticket", new_column_ticket_path(column), remote:true , id:"createNewTicket", data:{toggle:"popover",container:"body",placement:"bottom"}, class:"btn btn-mini glyphicon" %>
+
 </div>
 
 
@@ -27,25 +29,5 @@
         }).disableSelection();
     });
 </script>
-
-<style>
-    .sortableColumnsList {
-        border: 1px solid #eee;
-        width: 142px;
-        min-height: 20px;
-        list-style-type: none;
-        margin: 0;
-        padding: 5px 0 0 0;
-        float: left;
-        margin-right: 10px;
-    }
-
-    .sortableColumnsList li {
-        margin: 0 5px 5px 5px;
-        padding: 5px;
-        font-size: 1.2em;
-        width: 120px;
-    }
-</style>
 
 

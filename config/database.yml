@@ -9,30 +9,30 @@
 #  pool: 5
 #  timeout: 5000
 #
-#development:
-#  adapter: mysql2
-#  database: db_growup
-#  username: root
-#  password:
-#  host: localhost
-
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: growup_development
-  pool: 5
+  adapter: mysql2
+  database: db_growup
+  username: root
+  password:
   host: localhost
-  username: postgres
-  password: postgres
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: growup_test
-  pool: 5
-  host: localhost
-  username: postgres
-  password: postgres
+#
+#development:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: growup_development
+#  pool: 5
+#  host: localhost
+#  username: postgres
+#  password: postgres
+#
+#test:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: growup_test
+#  pool: 5
+#  host: localhost
+#  username: postgres
+#  password: postgres
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

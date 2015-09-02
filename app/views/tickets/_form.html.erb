@@ -1,0 +1,7 @@
+<div>
+  <%= simple_form_for [@column,@ticket], remote:true  do |f| %>
+      <%= f.input :name, placeholder: 'Ticket Name' %>
+      <%= f.button :submit, class: 'btn btn-primary btn-md' %>
+      <%= f.hidden_field :column_id, value: params[:column_id] %>
+  <%end%>
+</div>

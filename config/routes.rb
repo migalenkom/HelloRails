@@ -20,9 +20,9 @@ Growup::Application.routes.draw do
     resources :columns
   end
 
-  # resources :columns do
-  #   resources :tasks
-  # end
+   resources :columns do
+     resources :tickets
+   end
 
 
   # The priority is based upon order of creation:

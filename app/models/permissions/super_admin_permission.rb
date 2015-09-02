@@ -21,6 +21,7 @@ module Permissions
         mbr.creator_id == user.id
       end
       allow :columns, [:index,:new,:create,:destroy,:update,:show,:edit]
+      allow :tickets, [:index,:new,:create,:destroy,:update,:show,:edit]
 
       allow_param :user, [:name,:email,:isAdmin,:superAdmin,:password,:password_confirmation,:row_order,:avatar]
 
