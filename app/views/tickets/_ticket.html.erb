@@ -1,4 +1,4 @@
-    <li id="ticket_<%=ticket.id %>" class="ui-state-default"><%=ticket.name%>
+    <li id="<%=ticket.id %>" class="ui-state-default"><%=ticket.name%>
       <%= link_to '',column_ticket_path(column,ticket),
                   :method => :delete,
                   remote: true,

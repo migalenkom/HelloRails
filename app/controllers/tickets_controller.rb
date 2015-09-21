@@ -8,7 +8,6 @@ class TicketsController < ApplicationController
   #     format.js
   #   end
   # end
-
   def create
     @column = Column.find(params[:column_id])
     @ticket = Ticket.new(ticket_params)
@@ -59,8 +58,15 @@ class TicketsController < ApplicationController
       format.html { redirect_to  column_ticket_path}
       format.js
     end
-
   end
+
+  def sort
+    params[:ticket].each_with_index do |id, index|
+      Ticket.where(id: id).update_all(position:index)
+    end
+    render nothing: true
+  end
+
   private
   def ticket_params
     params.require(:ticket).permit(:id,:name,:position,:column_id)

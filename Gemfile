@@ -39,6 +39,7 @@ gem 'thin'
 gem 'unicorn'
 
 gem  'paperclip', '~> 4.2'
+gem 'jbuilder'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -50,6 +51,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 
 end
 # To use ActiveModel has_secure_password

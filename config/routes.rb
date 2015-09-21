@@ -21,8 +21,15 @@ Growup::Application.routes.draw do
   end
 
    resources :columns do
-     resources :tickets
+     resources :tickets do
+       collection {post :sort}
+     end
    end
+  namespace :api, defaults:{format:'json'} do
+    namespace :v1 do
+      resources :users
+    end
+  end
 
 
   # The priority is based upon order of creation:
