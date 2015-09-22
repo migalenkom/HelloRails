@@ -9,7 +9,7 @@ gem 'rails', '4.2.0'
 
 #gem 'sqlite3'
 gem 'mysql2'
-# gem 'pg'
+gem 'pg'
 gem 'will_paginate', '~> 3.0.6'
 gem "bcrypt-ruby", :require => "bcrypt"
 
