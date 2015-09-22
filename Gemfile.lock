@@ -126,6 +126,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.3)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -241,6 +242,7 @@ DEPENDENCIES
   jquery-ui-rails
   mysql2
   paperclip (~> 4.2)
+  pg
   pry-rails
   quiet_assets
   rails (= 4.2.0)
