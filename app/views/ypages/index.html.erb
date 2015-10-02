@@ -1,0 +1,19 @@
+<div class="media" id="yelpWidget">
+
+    <img  src="<%= @business.image_url %>">
+    <h5  ><a href="<%= @business.url %>" target="_blank"><%= @business.name %></a></h5>
+    <img src="<%= @business.rating_img_url %>">
+    <p><%= @business.review_count %>, reviews</p>
+
+  <div style="background: #d3d3d3; display: block; height: inherit " class="pull-right">
+    <h4><%= @business.reviews.first.user.name%></h4>
+    <img src="<%= @business.reviews.first.user.image_url %>" style="float: left; margin: 5px;">
+    <%= @business.reviews.first.excerpt  %>
+  </div>
+</div>
+
+<script>
+    $(function() {
+        $( "#yelpWidget" ).draggable();
+    });
+</script>

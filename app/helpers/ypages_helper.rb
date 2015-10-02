@@ -1,0 +1,2 @@
+module YpagesHelper
+end

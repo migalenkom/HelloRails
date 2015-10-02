@@ -39,7 +39,9 @@ gem 'thin'
 gem 'unicorn'
 
 gem  'paperclip', '~> 4.2'
-gem 'jbuilder'
+gem  'jbuilder'
+gem  'yelp'
+gem  'twitter'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

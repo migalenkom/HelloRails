@@ -12,6 +12,8 @@ Growup::Application.routes.draw do
   end
   resources :sessions
   resources :uploads
+  resources :ypages
+  resources :twitts
   resources :organizations  do
      resources :projects
      resources :members
