@@ -38,7 +38,7 @@ class ApiConfigsDatatable
     api_configs = ApiConfig.order("#{sort_column} #{sort_direction}")
     api_configs = api_configs.page(page).per_page(per_page)
     if params[:sSearch].present?
-      api_configs = api_configs.where("name like :search or key like :search ", search: "%#{params[:sSearch]}%")
+      api_configs = api_configs.where("name like :search", search: "%#{params[:sSearch]}%")
     end
     api_configs
   end

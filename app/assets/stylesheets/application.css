@@ -11,7 +11,7 @@
  *= require_self
  *= require jquery-ui
  *= require dataTables/jquery.dataTables
- *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require dataTables/src/demo_table_jui
  *= require_tree .
  */
 #results {

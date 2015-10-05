@@ -28,6 +28,5 @@
 //= require jquery-ui
 //= require jquery-fileupload
 //= require dataTables/jquery.dataTables
-//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require_tree .
 
