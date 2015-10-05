@@ -10,8 +10,9 @@
  *
  *= require_self
  *= require jquery-ui
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require_tree .
-
  */
 #results {
     display: none;
@@ -56,4 +57,4 @@
     clear: both;
     margin: 0;
     padding: 0;
-
+}

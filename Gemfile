@@ -42,6 +42,7 @@ gem  'paperclip', '~> 4.2'
 gem  'jbuilder'
 gem  'yelp'
 gem  'twitter'
+gem  'jquery-datatables-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

@@ -14,6 +14,7 @@ Growup::Application.routes.draw do
   resources :uploads
   resources :ypages
   resources :twitts
+  resources :api_configs
   resources :organizations  do
      resources :projects
      resources :members

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require bootstrap/affix
 //= require bootstrap/alert
 //= require bootstrap/button
@@ -26,6 +27,7 @@
 //= require bootstrap/popover
 //= require jquery-ui
 //= require jquery-fileupload
-// require jquery.fileupload
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require_tree .
 
