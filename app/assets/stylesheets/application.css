@@ -14,6 +14,16 @@
  *= require dataTables/src/demo_table_jui
  *= require_tree .
  */
+
+table
+{
+    table-layout: fixed;
+
+}
+table td{
+    overflow: hidden;
+}
+
 #results {
     display: none;
     margin-top: 15px;

@@ -1,6 +1,5 @@
 class ApiConfigsDatatable
-  delegate :params, :link_to, :number_to_currency, to: :@view
-  include Rails.application.routes.url_helpers
+  delegate :params, :link_to, :edit_api_config_path, :number_to_currency, to: :@view
 
   def initialize(view)
     @view = view

@@ -1,3 +1,4 @@
+<%# content_for :container do %>
 <h2> Social provider configs</h2>
 <table id="apiConfigs" class="display" data-source="<%= api_configs_url(format: "json") %>">
   <thead>
@@ -18,3 +19,5 @@
 <%= link_to "Create new config", new_api_config_path, remote:true , id:"createNewConfig",
                                  data:{toggle:"popover", container:"body"}, class:"btn btn-md btn-primary"%>
 
+
+<%#end%>

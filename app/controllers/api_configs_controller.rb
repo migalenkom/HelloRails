@@ -37,6 +37,14 @@ class ApiConfigsController < ApplicationController
 
     end
   end
+
+  def show
+    @api_config = ApiConfig.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
+
   def update
 
     @api_config = ApiConfig.find(params[:id])
