@@ -1,0 +1,9 @@
+$('#createNewConfig').popover("destroy");
+$('#createNewConfig').popover({
+    html:true,
+    content:"<%= j render 'new'%>",
+    placement:"auto",
+    container:"body",
+    template:'<div style="width: 500px;" class="popover" role="tooltip"><div class="popover-content"></div></div>'
+
+}).popover('show');

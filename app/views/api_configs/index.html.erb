@@ -1,4 +1,4 @@
-
+<h2> Social provider configs</h2>
 <table id="apiConfigs" class="display" data-source="<%= api_configs_url(format: "json") %>">
   <thead>
   <tr>
@@ -7,8 +7,14 @@
     <th>Secret</th>
     <th>Token</th>
     <th>Token Secret</th>
+    <th></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
   </tbody>
 </table>
+</br>
+<%= link_to "Create new config", new_api_config_path, remote:true , id:"createNewConfig",
+                                 data:{toggle:"popover", container:"body"}, class:"btn btn-md btn-primary"%>
+

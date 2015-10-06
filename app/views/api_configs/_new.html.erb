@@ -1,0 +1,10 @@
+<div>
+  <%= simple_form_for @api_config , remote:true do |f| %>
+      <%= f.input :name, placeholder: 'Name' %>
+      <%= f.input :key %>
+      <%= f.input :secret %>
+      <%= f.input :token %>
+      <%= f.input :token_secret %>
+      <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>
