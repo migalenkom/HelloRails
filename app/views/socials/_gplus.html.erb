@@ -1,0 +1,38 @@
+<div id="gplusWidget" style="padding-top: 10px">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <div class="media">
+            <a target="_blank" class="thumbnail pull-left" href="">
+              <img class="media-object" src="">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading" style="padding: 5px"><a target="_blank" href=""></a> on Google + </h4>
+              <!--<p><span class="label label-info">888 photos</span> <span class="label label-warning">150 followers</span></p>-->
+              <p>
+                <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
+                <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
+                <!--<a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>-->
+              </p>
+              <p><b>New on my page</b></p>
+              <p>
+              <ol>
+                <%# @fb_profile['posts']['data'].each do |msg| %>
+
+                    <%# if msg['message'] %>
+                        <li><%#= msg['message'] %></li>
+                    <%# end %>
+                <%# end %>
+              </p>
+              </ol>
+              <a target="_blank" href="<%#= @fb_profile['link'] %>" class="btn btn-md btn-default pull-right" >
+                <span class="glyphicon glyphicon-forward pull-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

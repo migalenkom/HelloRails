@@ -16,7 +16,9 @@ class ApiConfigsController < ApplicationController
   end
 
   def create
-    @api_config = ApiConfig.new(config_params)
+    @api_config = current_user.api_configs.new(config_params)
+    current_user.api_configs << @api_config
+
      if @api_config.save {
        respond_to do |format|
          format.html {redirect_to api_configs_path, :notice => "Config Created"}
@@ -79,6 +81,6 @@ class ApiConfigsController < ApplicationController
   private
 
   def config_params
-    params.require(:api_config).permit(:name, :key, :secret,:token, :token_secret)
+    params.require(:api_config).permit(:name, :key, :secret,:token, :token_secret, :social_user_name ,:user_id )
   end
 end

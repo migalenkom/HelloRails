@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :user_organizations
   has_many :organizations, through: :user_organizations
   has_many :created_organizations, :class_name => "Organization", :foreign_key => "creator_id"
-
+  has_many :api_configs, dependent: :destroy
 
   def generate_api_key
     loop do

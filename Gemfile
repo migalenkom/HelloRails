@@ -43,6 +43,8 @@ gem  'jbuilder'
 gem  'yelp'
 gem  'twitter'
 gem  'jquery-datatables-rails'
+gem  'koala'
+gem  'google_plus'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

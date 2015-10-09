@@ -1,4 +1,4 @@
-<div id="twitterWidget">
+<div class="col-lg-8" id="twitterWidget">
     <h1>
       <a target="_blank" href="<%= @user.uri%>" title="Твиты от <%= @user.name%>">Твиты</a>
     </h1>
@@ -18,13 +18,13 @@
               <p><b><%= t.text %></b></p>
                 <div class="row">
                 <div class="col-sm-3" >
-                  <a target="_blank" class="btn btn-info" href="https://twitter.com/intent/tweet?in_reply_to=<%= t.id %>"><b>Ответить</b></a>
+                  <a target="_blank" class="btn btn-xs  href="https://twitter.com/intent/tweet?in_reply_to=<%= t.id %>"><b>Ответить</b></a>
                 </div>
                 <div class="col-sm-3">
-                  <a target="_blank" class="btn btn-info" href="https://twitter.com/intent/retweet?tweet_id=<%= t.id %>"><b>Ретвитнуть</b></a>
+                  <a target="_blank" class="btn btn-xs" href="https://twitter.com/intent/retweet?tweet_id=<%= t.id %>"><b>Ретвитнуть</b></a>
                 </div>
                 <div class="col-sm-3">
-                  <a target="_blank" class="btn btn-info" href="https://twitter.com/intent/favorite?tweet_id=<%= t.id %>"><b>В избранное</b></a>
+                  <a target="_blank" class="btn btn-xs " href="https://twitter.com/intent/favorite?tweet_id=<%= t.id %>"><b>В избранное</b></a>
                 </div>
                 </div>
             <%end%>

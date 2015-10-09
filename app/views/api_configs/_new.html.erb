@@ -1,6 +1,7 @@
 <div>
   <%= simple_form_for @api_config , remote:true do |f| %>
       <%= f.input :name, placeholder: 'Name' %>
+      <%= f.input :social_user_name, placeholder: 'Socail username' %>
       <%= f.input :key %>
       <%= f.input :secret %>
       <%= f.input :token %>

@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005075528) do
+ActiveRecord::Schema.define(version: 20151008124839) do
 
   create_table "api_configs", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.string   "key",          limit: 255
-    t.string   "secret",       limit: 255
-    t.string   "token",        limit: 255
-    t.string   "token_secret", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "name",             limit: 255
+    t.string   "key",              limit: 255
+    t.string   "secret",           limit: 255
+    t.string   "token",            limit: 255
+    t.string   "token_secret",     limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "user_id",          limit: 4
+    t.string   "social_user_name", limit: 255
   end
 
   create_table "columns", force: :cascade do |t|

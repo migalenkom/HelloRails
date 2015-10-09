@@ -1,5 +1,5 @@
 class ApiConfigsDatatable
-  delegate :params, :link_to, :edit_api_config_path, :number_to_currency, to: :@view
+  delegate :params, :link_to, :edit_api_config_path, to: :@view
 
   def initialize(view)
     @view = view
@@ -26,7 +26,6 @@ class ApiConfigsDatatable
           api_conf.token_secret,
           link_to("", api_conf, :method => :delete, remote: true, class: 'btn btn-mini glyphicon glyphicon-remove'),
           link_to("", edit_api_config_path(api_conf),remote: true , id:'editConfig', data:{toggle:"popover",container:"body"},class:'btn btn-mini glyphicon glyphicon-pencil')
-
           # h(api_conf.released_on.strftime("%B %e, %Y")),
           # number_to_currency(api_conf.price)
       ]
