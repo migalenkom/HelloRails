@@ -10,6 +10,8 @@
 <div>
   <%= link_to "Create new organization",new_organization_path, remote:true , id:"createNewOrganization", data:{toggle:"popover",container:"body"}, class:"btn btn-md btn-primary"%>
 </div>
+<%=request.protocol%>
+<%=request.ssl?%>
 
 <h3> Shared organizations </h3>
 <ul id="shared_organizationsList" class="list-group" >

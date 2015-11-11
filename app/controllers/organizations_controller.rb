@@ -1,8 +1,12 @@
 class OrganizationsController < ApplicationController
 
   def index
+
     @organizations = Organization.my_organizations(current_user)
     @shared_organizations = Organization.shared_organizations(current_user)
+    logger.info "#{request.protocol}"
+    puts request.ssl?
+
     respond_to do |format|
       format.html # index.html.erb
       format.js {}
