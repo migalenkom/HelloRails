@@ -7,6 +7,8 @@ class OrganizationsController < ApplicationController
     logger.info "#{request.protocol}"
     puts request.ssl?
     puts request.remote_ip
+    puts request.env['REMOTE_ADDR']
+    puts request.env['HTTP_X_FORWARDED_FOR']
     
     respond_to do |format|
       format.html # index.html.erb
