@@ -6,7 +6,8 @@ class OrganizationsController < ApplicationController
     @shared_organizations = Organization.shared_organizations(current_user)
     logger.info "#{request.protocol}"
     puts request.ssl?
-
+    puts request.remote_ip
+    
     respond_to do |format|
       format.html # index.html.erb
       format.js {}
